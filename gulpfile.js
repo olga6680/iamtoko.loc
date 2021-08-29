@@ -1,3 +1,7 @@
+let domain = 'iamtoko.loc';
+let theme = 'iamtoko';
+let fileswatch = '+(twig|php|tpl)';
+
 // Подключаем Gulp и все необходимые библиотеки
 const { src, dest, parallel, series, watch } = require('gulp');
 const browserSync = require('browser-sync').create();
@@ -17,7 +21,7 @@ sass.compiler = require('node-sass');
 
 function browsersync() {
     browserSync.init({
-        proxy: 'iamtokoloc/',
+        proxy: '${domain}',
         notify: false,
         online: false
     })
@@ -30,7 +34,7 @@ function scripts() {
         ])
         .pipe(concat('theme.min.js'))
         .pipe(uglify())
-        .pipe(dest('catalog/view/theme/iamtoko/js/'))
+        .pipe(dest('public_html/catalog/view/theme/iamtoko/js/'))
         .pipe(browserSync.stream())
 }
 
@@ -42,7 +46,7 @@ function styles() {
         .pipe(concat('stylesheet.css'))
         .pipe(autoprefixer({ overrideBrowserslist: ['last 25 versions'], grid: true }))
         .pipe(cleancss(({ level: { 1: { specialComments: 0 } }, /*format: 'beautify'*/ })))
-        .pipe(dest('catalog/view/theme/iamtoko/stylesheet/'))
+        .pipe(dest('public_html/catalog/view/theme/iamtoko/stylesheet/'))
         .pipe(browserSync.stream())
 }
 
@@ -50,24 +54,24 @@ function images() {
     return src('image/catalog/**/*')
         .pipe(newer('image/cashe/catalog/'))
         .pipe(imagemin())
-        .pipe(dest('image/cashe/catalog/'))
+        .pipe(dest('public_html/image/cashe/catalog/'))
 }
 
 function cleanimg() {
-    return del('image/cashe/catalog/**/*', { force: true })
+    return del('public_html/image/cashe/catalog/**/*', { force: true })
 }
 
 function cleandist() {
-    return del('dist/**/*', { force: true })
+    return del('public_html/**/*', { force: true })
 }
 
 function sprite() {
-    return src('image/icon-*.svg')
+    return src('image/icon/icon-*.svg')
         .pipe(svgstore({
             inlineSvg: true
         }))
         .pipe(rename('sprite.svg'))
-        .pipe(dest('image'));
+        .pipe(dest('public_html/image'));
 }
 
 function buildcopy() {
@@ -77,7 +81,7 @@ function buildcopy() {
             'image/cashe/catalog/**/*',
             'catalog/view/theme/iamtoko/template/**/*.twig'
         ], { base: './' })
-        .pipe(dest('dist'));
+        .pipe(dest('public_html'));
 }
 
 function startwatch() {

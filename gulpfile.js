@@ -1,7 +1,3 @@
-let domain = 'iamtoko.loc';
-let theme = 'iamtoko';
-let fileswatch = '+(twig|php|tpl)';
-
 // Подключаем Gulp и все необходимые библиотеки
 const { src, dest, parallel, series, watch } = require('gulp');
 const browserSync = require('browser-sync').create();
@@ -11,8 +7,7 @@ const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('gulp-autoprefixer');
 const bourbon = require('node-bourbon');
 const cleancss = require('gulp-clean-css');
-const newer = require('gulp-newer');
-const imagemin = require('gulp-imagemin');
+
 const del = require('del');
 const svgstore = require('gulp-svgstore');
 const rename = require('gulp-rename');
@@ -21,7 +16,7 @@ sass.compiler = require('node-sass');
 
 function browsersync() {
     browserSync.init({
-        proxy: '${domain}',
+        proxy: 'iamtoko.loc/',
         notify: false,
         online: false
     })
@@ -50,12 +45,7 @@ function styles() {
         .pipe(browserSync.stream())
 }
 
-function images() {
-    return src('image/catalog/**/*')
-        .pipe(newer('image/cashe/catalog/'))
-        .pipe(imagemin())
-        .pipe(dest('public_html/image/cashe/catalog/'))
-}
+
 
 function cleanimg() {
     return del('public_html/image/cashe/catalog/**/*', { force: true })
@@ -89,15 +79,13 @@ function startwatch() {
     watch(['catalog/view/theme/iamtoko/js/**/*.js', '!catalog/view/theme/iamtoko/js/**/*.min.js'], scripts);
     watch('catalog/view/theme/iamtoko/template/**/*.twig').on('change', browserSync.reload);
     watch('catalog/view/theme/iamtoko/libs/**/*').on('change', browserSync.reload);
-    watch('image/catalog/**/*', images);
 }
 
 exports.browsersync = browsersync;
 exports.scripts = scripts;
 exports.styles = styles;
-exports.images = images;
 exports.cleanimg = cleanimg;
 exports.sprite = sprite;
-exports.build = series(cleandist, styles, scripts, images, buildcopy);
+exports.build = series(cleandist, styles, scripts, sprite, buildcopy);
 
 exports.default = parallel(scripts, styles, browsersync, startwatch);

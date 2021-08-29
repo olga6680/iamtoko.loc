@@ -11,7 +11,6 @@
         "gulp-autoprefixer": "^8.0.0",
         "gulp-clean-css": "^4.3.0",
         "gulp-concat": "^2.6.1",
-        "gulp-imagemin": "^8.0.0",
         "gulp-newer": "^1.4.0",
         "gulp-rename": "^2.0.0",
         "gulp-sass": "^5.0.0",
@@ -20,7 +19,7 @@
         "jquery": "^3.6.0",
         "node-bourbon": "^4.2.8",
         "node-sass": "^6.0.1",
-        "sass": "^1.38.1"
+        "sass": "^1.38.2"
     },
     "scripts": {
         "preinstall": "npx npm-force-resolutions",

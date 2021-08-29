@@ -28,7 +28,7 @@ function scripts() {
         ])
         .pipe(concat('theme.min.js'))
         .pipe(uglify())
-        .pipe(dest('public_html/catalog/view/theme/iamtoko/js/'))
+        .pipe(dest('catalog/view/theme/iamtoko/js/'))
         .pipe(browserSync.stream())
 }
 
@@ -40,10 +40,22 @@ function styles() {
         .pipe(concat('stylesheet.css'))
         .pipe(autoprefixer({ overrideBrowserslist: ['last 25 versions'], grid: true }))
         .pipe(cleancss(({ level: { 1: { specialComments: 0 } }, /*format: 'beautify'*/ })))
-        .pipe(dest('public_html/catalog/view/theme/iamtoko/stylesheet/'))
+        .pipe(dest('catalog/view/theme/iamtoko/stylesheet/'))
         .pipe(browserSync.stream())
 }
 
+function images() {
+    return src('image/catalog/**/*')
+        .pipe(dest('image/catalog/'))
+}
+
+function cleanimg() {
+    return del('image/catalog/**/*', { force: true })
+}
+
+function cleandist() {
+    return del('public_html/**/*', { force: true })
+}
 
 function sprite() {
     return src('image/icon/icon-*.svg')
@@ -54,26 +66,11 @@ function sprite() {
         .pipe(dest('image'));
 }
 
-
-function images() {
-    return src('image/**/*')
-        .pipe(dest('public_html/image'))
-}
-
-function cleanimg() {
-    return del('public_html/image/**/*', { force: true })
-}
-
-function cleandist() {
-    return del('public_html/**/*', { force: true })
-}
-
-
 function buildcopy() {
     return src([
             'catalog/view/theme/iamtoko/js/**/*min.js',
             'catalog/view/theme/iamtoko/stylesheet/**/*.min.css',
-            'image/cashe/catalog/**/*',
+            'image/catalog/**/*',
             'catalog/view/theme/iamtoko/template/**/*.twig'
         ], { base: './' })
         .pipe(dest('public_html'));
@@ -90,6 +87,7 @@ function startwatch() {
 exports.browsersync = browsersync;
 exports.scripts = scripts;
 exports.styles = styles;
+exports.images = images;
 exports.cleanimg = cleanimg;
 exports.sprite = sprite;
 exports.build = series(cleandist, styles, scripts, sprite, images, buildcopy);

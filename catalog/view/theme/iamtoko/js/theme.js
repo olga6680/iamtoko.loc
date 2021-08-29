@@ -19,18 +19,18 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-$(document).ready(function() {
 
-    var $menu = $(".header__nav");
 
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 29 && $menu.hasClass("default")) {
-            $menu.removeClass("default").addClass("fixed");
-        } else if ($(this).scrollTop() <= 29 && $menu.hasClass("fixed")) {
-            $menu.removeClass("fixed").addClass("default");
-        }
-    }); //scroll
-});
+var $menu = $(".header__nav");
+
+$(window).scroll(function() {
+    if ($(this).scrollTop() > 29 && $menu.hasClass("default")) {
+        $menu.removeClass("default").addClass("fixed");
+    } else if ($(this).scrollTop() <= 29 && $menu.hasClass("fixed")) {
+        $menu.removeClass("fixed").addClass("default");
+    }
+}); //scroll
+
 
 /*--------- активный пункт меню  ---*/
 

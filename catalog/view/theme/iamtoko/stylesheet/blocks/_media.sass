@@ -1,0 +1,66 @@
+@media (max-width: 1439px)
+  .header
+    &__item:not(:last-child)
+      padding-right: 30px
+
+@media (max-width: 1200px)
+  .header
+    &__link
+      padding: 2px 8px 4px 8px
+    &__item:not(:last-child)
+      padding-right: 15px
+      a
+        font-size: 12px
+  .hamburger
+    &_active
+      left: 5px
+
+@media (max-width: 991px)
+  .hamburger
+    &_active
+      left: 5px
+
+@media (max-width: 767px)
+  .html_active
+    margin-left: 0
+  .hamburger
+    left: 34px
+    &_active
+      left: 350px
+      z-index: 11
+      top: 70%
+  .header
+    &__right-menu
+      padding: 8px 0 0 15px
+    &__accaunt .dropdown-menu
+      left: 0
+
+@media (max-width: 575px)
+  .fixed
+    top: -87px
+  .hamburger
+    left: 15px
+    width: 25px
+    &_active
+      left: 235px
+  .menu
+    width: 280px
+    &__item
+      font-size: 16px
+  .header
+    &__logo
+      right: 15px
+      font-size: 27px
+      letter-spacing: 5px
+      span
+        font-size: 15px
+        letter-spacing: 4px
+    &__right
+      height: 57px
+    &__right-menu
+      padding: 16px 0 0 15px
+    &__language .dropdown-menu,
+    &__cart .dropdown-menu,
+    &__phone .dropdown-menu,
+    &__accaunt .dropdown-menu
+      top: 38px

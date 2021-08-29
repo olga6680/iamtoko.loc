@@ -1,0 +1,40 @@
+2021-08-25 19:58:10 - PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 7
+2021-08-25 19:58:10 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 19:58:10 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 19:58:10 - PHP Notice:  Undefined variable: mysql in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280
+2021-08-25 19:58:10 - PHP Notice:  Trying to get property of non-object in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280
+2021-08-25 19:58:40 - PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 7
+2021-08-25 19:58:40 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 19:58:40 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 19:58:40 - PHP Notice:  Undefined variable: mysql in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280
+2021-08-25 19:58:40 - PHP Notice:  Trying to get property of non-object in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280
+2021-08-25 19:58:56 - PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 7
+2021-08-25 19:58:56 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 19:58:56 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 19:58:56 - PHP Notice:  Undefined variable: mysql in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280
+2021-08-25 19:58:56 - PHP Notice:  Trying to get property of non-object in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280
+2021-08-25 20:04:35 - PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 7
+2021-08-25 20:04:35 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 20:04:35 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 20:04:35 - PHP Notice:  Undefined variable: mysql in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280
+2021-08-25 20:04:35 - PHP Notice:  Trying to get property of non-object in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280
+2021-08-25 20:07:05 - PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 7
+2021-08-25 20:07:05 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 20:07:05 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 20:07:05 - PHP Notice:  Undefined variable: mysql in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280
+2021-08-25 20:07:05 - PHP Notice:  Trying to get property of non-object in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280
+2021-08-25 20:08:11 - PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 7
+2021-08-25 20:08:11 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 20:08:11 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 20:08:11 - PHP Notice:  Undefined variable: mysql in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280
+2021-08-25 20:08:11 - PHP Notice:  Trying to get property of non-object in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280
+2021-08-25 20:09:21 - PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 7
+2021-08-25 20:09:21 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 20:09:21 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 20:09:21 - PHP Notice:  Undefined variable: mysql in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280
+2021-08-25 20:09:21 - PHP Notice:  Trying to get property of non-object in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280
+2021-08-25 20:18:32 - PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 7
+2021-08-25 20:18:32 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 20:18:32 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in E:\OpenServer\domains\iamtoko.loc\system\library\db\mysqli.php on line 10
+2021-08-25 20:18:32 - PHP Notice:  Undefined variable: mysql in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280
+2021-08-25 20:18:32 - PHP Notice:  Trying to get property of non-object in E:\OpenServer\domains\iamtoko.loc\install\controller\install\step_3.php on line 280

@@ -19,7 +19,7 @@
         "jquery": "^3.6.0",
         "node-bourbon": "^4.2.8",
         "node-sass": "^6.0.1",
-        "sass": "^1.38.2"
+        "sass": "^1.39.0"
     },
     "scripts": {
         "preinstall": "npx npm-force-resolutions",
@@ -37,5 +37,8 @@
     "bugs": {
         "url": "https://github.com/olga6680/iamtoko-1/issues"
     },
-    "homepage": "https://github.com/olga6680/iamtoko-1#readme"
+    "homepage": "https://github.com/olga6680/iamtoko-1#readme",
+    "dependencies": {
+        "pinkie-promise": "github:floatdrop/pinkie-promise"
+    }
 }

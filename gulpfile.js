@@ -44,14 +44,6 @@ function styles() {
         .pipe(browserSync.stream())
 }
 
-function images() {
-    return src('image/catalog/**/*')
-        .pipe(dest('image/catalog/'))
-}
-
-function cleanimg() {
-    return del('image/catalog/**/*', { force: true })
-}
 
 function cleandist() {
     return del('public_html/**/*', { force: true })
@@ -81,15 +73,12 @@ function startwatch() {
     watch(['catalog/view/theme/iamtoko/js/**/*.js', '!catalog/view/theme/iamtoko/js/**/*.min.js'], scripts);
     watch('catalog/view/theme/iamtoko/template/**/*.twig').on('change', browserSync.reload);
     watch('catalog/view/theme/iamtoko/libs/**/*').on('change', browserSync.reload);
-    watch('image/catalog/**/*', images);
 }
 
 exports.browsersync = browsersync;
 exports.scripts = scripts;
 exports.styles = styles;
-exports.images = images;
-exports.cleanimg = cleanimg;
 exports.sprite = sprite;
-exports.build = series(cleandist, styles, scripts, sprite, images, buildcopy);
+exports.build = series(cleandist, styles, scripts, sprite, buildcopy);
 
 exports.default = parallel(scripts, styles, browsersync, startwatch);

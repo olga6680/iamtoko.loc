@@ -32,6 +32,17 @@ $(window).scroll(function() {
 }); //scroll
 
 
+/*--------- большой слайдер на главной ---*/
+$('#slideshow0').swiper({
+    mode: 'horizontal',
+    slidesPerView: 2,
+    spaceBetween: 30,
+    effect: 'fade',
+    autoplay: 1000000,
+    autoplayDisableOnInteraction: true,
+    loop: true
+});
+
 /*--------- активный пункт меню  ---*/
 
 jQuery(document).ready(function($) {

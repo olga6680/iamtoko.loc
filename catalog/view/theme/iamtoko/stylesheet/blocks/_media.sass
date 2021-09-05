@@ -14,13 +14,55 @@
   .hamburger
     &_active
       left: 5px
+  .slideshow
+    &__title
+      &_1
+        font-size: 38px
+    &__appeal
+      &_1
+        font-size: 24px
+    &__new
+      &_1
+        font-size: 18px
 
 @media (max-width: 991px)
   .hamburger
     &_active
       left: 5px
-
-
+  .slideshow
+    margin: 0
+    margin-top: -60px
+    &__descr
+      &_1
+        padding-left: 240px
+        padding-right: 82px
+    &__title
+      letter-spacing: -1px
+      &_1
+        font-size: 28px
+      &_2
+        font-size: 35px
+    &__appeal
+      &_1
+        font-size: 18px
+    &__btn
+      &_1
+        font-size: 14px
+      &_2
+        font-size: 16px
+    &__new
+      &_1
+        padding-right: 70px
+        margin-top: 5px
+        font-size: 16px
+  .bannerhom
+    &__banner
+      padding: 0 25px
+    &__title
+      font-size: 25px
+      line-height: .5
+    &__btn
+      margin-top: 13px
 
 @media (max-width: 767px)
   .html_active
@@ -36,6 +78,40 @@
       padding: 8px 0 0 15px
     &__accaunt .dropdown-menu
       left: 0
+  .slideshow
+    &__descr
+      &_1
+        top: 20px
+        padding-left: 191px
+        padding-right: 69px
+    &__title
+      &_1
+        font-size: 23px
+      &_2
+        font-size: 25px
+    &__appeal
+      &_1
+        font-size: 16px
+    &__btn
+      &_1
+        font-size: 12px
+        margin-top: 7px
+      &_2
+        font-size: 14px
+        margin-top: 21px
+    &__new
+      &_1
+        margin-top: 1px
+        font-size: 10px
+        padding-right: 70px
+        letter-spacing: 1px
+      &_2
+        margin-top: 5px
+  .bannerhom
+    &__banner
+      padding: 0 15px
+    &__title
+      font-size: 21px
 
 @media (max-width: 575px)
   .fixed
@@ -66,3 +142,36 @@
     &__phone .dropdown-menu,
     &__accaunt .dropdown-menu
       top: 38px
+  .slideshow
+    &__descr
+      &_1
+        top: 10px
+        padding-left: 91px
+        padding-right: 23px
+    &__title
+      &_1
+        font-size: 14px
+        letter-spacing: .1px
+      &_2
+        font-size: 18px
+    &__appeal
+      &_1
+        display: none
+    &__btn
+      font-size: 12px
+      &_1
+        margin-top: 0
+      &_2
+        margin-top: 9px
+    &__new
+      display: none
+  .bannerhom
+
+    &__title
+      font-size: 10px
+      line-height: .1
+    &__text
+      font-size: 10px
+    &__btn
+      margin-top: 8px
+      font-size: 10px

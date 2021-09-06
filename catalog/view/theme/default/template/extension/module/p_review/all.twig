@@ -1,0 +1,151 @@
+{{ header }}
+<div class="container">
+{{ html }}
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb['href'] }}">{{ breadcrumb['text'] }}</a></li>
+    {% endfor %}
+  </ul>
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h1>{{ heading_title }}</h1>
+	  {% if description %}
+	  <div class="row">
+	    <div class="col-md-12">
+	    {{ description }}
+	    </div>
+	  </div>
+	  {% endif %}
+      {% if p_reviews %}
+      <div class="row">
+        <div class="col-md-{{ field_rating ? '4' : '6' }}">
+          <div class="form-group input-group input-group-sm">
+            <label class="input-group-addon" for="input-sort">{{ text_sort }}</label>
+            <select id="input-sort" class="form-control" onchange="location = this.value;">
+			  {% for sorts in sorts %}
+			  {% if sorts['value'] == '%s-%s'|format(sort, order) %}
+              <option value="{{ sorts['href'] }}" selected="selected">{{ sorts['text'] }}</option>
+              {% else %}
+              <option value="{{ sorts['href'] }}">{{ sorts['text'] }}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+		{% if field_rating %}
+		<div class="col-md-4">
+		  <div class="form-group input-group input-group-sm">
+			<label class="input-group-addon" for="input-filter-rating">{{ text_filter_rating }}</label>
+			<select id="input-filter-rating" class="form-control" onchange="location = this.value;">
+			  {% for ratings in ratings %}
+			  {% if ratings['value'] == rating %}
+			  <option value="{{ ratings['href'] }}" selected="selected">{{ ratings['text'] }}</option>
+			  {% else %}
+			  <option value="{{ ratings['href'] }}">{{ ratings['text'] }}</option>
+			  {% endif %}
+			  {% endfor %}
+			</select>
+		  </div>
+		</div>
+		{% endif %}
+        <div class="col-md-{{ field_rating ? '4' : '6' }}">
+          <div class="form-group input-group input-group-sm">
+            <label class="input-group-addon" for="input-limit">{{ text_limit }}</label>
+            <select id="input-limit" class="form-control" onchange="location = this.value;">
+			  {% for limits in limits %}
+              {% if limits['value'] == limit %}
+              <option value="{{ limits['href'] }}" selected="selected">{{ limits['text'] }}</option>
+              {% else %}
+              <option value="{{ limits['href'] }}">{{ limits['text'] }}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+      </div>
+	<h1>{{ heading_title }}</h1>
+	<div class="row review-mi">
+		{% for p_review in p_reviews %}
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			<div class="pm-review-thumb">
+			{% if p_review['product_image'] %}<div class="image"><a href="{{ p_review['product_href'] }}"><img src="{{ p_review['product_image'] }}" alt="{{ p_review['product'] }}" title="{{ p_review['product'] }}" class="img-responsive" /></a></div>{% endif %}
+			<h4><a href="{{ p_review['product_href'] }}">{{ p_review['product'] }}</a></h4>
+			<div class="caption">
+				{% if p_review['title'] %}
+					<h4>{{ p_review['title'] }}</h4>
+				{% endif %}
+				{% if p_review['rating'] %}
+					<div class="rating">
+						{% for i in 1..5 %}
+						{% if p_review['rating'] < i %}
+						<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+						{% else %}
+						<span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+						{% endif %}
+						{% endfor %}
+					</div>
+				{% endif %}
+				{% if p_review['text'] %}
+				{% if p_review['name'] or p_review['city'] or p_review['date_added'] %}
+					<div class="name">
+						{% if p_review['name'] %}
+				<i>{{ p_review['name'] }}</i>
+				{% endif %}
+				{% if p_review['city'] %}
+				<i>{{ p_review['city'] }}</i>
+				{% endif %}
+				{% if p_review['date_added'] %}
+				<i>{{ p_review['date_added'] }}</i>
+				{% endif %}
+					</div>
+				<div class="text-review"><br/>{{ p_review['text'] }}</div>
+				{% endif %}
+
+
+				{% endif %}
+					{% if p_review['image'] %}
+				<p><strong>{{ entry_image }}</strong></p>
+				<p class="pm-thumbnail pm-thumbnail{{ module }}{{ p_review['p_review_id'] }}">{% for value in p_review.image %}<a data-thumbnail="{{ module }}{{ p_review['p_review_id'] }}" href="{{ value['thumb'] }}"><img src="{{ value['thumbnail'] }}" class="img-thumbnail"></a>{% endfor %}</p>
+				{% endif %}
+				<a href="{{ p_review['href'] }}" class="btn">{{ button_readmore }}</a>
+			</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+
+
+
+
+      <div class="row">
+        <div class="col-sm-6 text-left">{{ pagination }}</div>
+        <div class="col-sm-6 text-right">{{ results }}</div>
+      </div>
+	  {% if field_image %}
+	  <script type="text/javascript"><!--
+		  $('.p-thumbnail a').on('click', function() {
+			  $('.p-thumbnail' + $(this).data('thumbnail')).magnificPopup({
+				  type:'image',
+				  delegate: 'a',
+				  gallery: {
+					  enabled:true
+				  }
+			  });
+		  });
+	  --></script>
+	  {% endif %}
+      {% else %}
+      <p>{{ text_no_p_review }}</p>
+      {% endif %}
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+{{ footer }}

@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
+/*фиксированное меню */
 var $menu = $(".header__nav");
 
 $(window).scroll(function() {
@@ -29,7 +29,10 @@ $(window).scroll(function() {
     } else if ($(this).scrollTop() <= 29 && $menu.hasClass("fixed")) {
         $menu.removeClass("fixed").addClass("default");
     }
-}); //scroll
+});
+
+
+
 
 
 /*--------- большой слайдер на главной ---*/
@@ -38,10 +41,13 @@ $('#slideshow0').swiper({
     slidesPerView: 2,
     spaceBetween: 30,
     effect: 'fade',
-    autoplay: 1000000,
+    autoplay: 100000,
     autoplayDisableOnInteraction: true,
     loop: true
 });
+
+
+
 
 /*--------- активный пункт меню  ---*/
 
@@ -67,4 +73,46 @@ $('#form-callbackfooter-footer #button_send_callbackfooter_footer').on('click', 
             data: "parse_mode=HTML&text=" + encodeURIComponent(text),
         });
     };
+});
+
+$('.swiper-container1').swiper({
+    mode: 'horizontal',
+    autoplay: 30000,
+    centeredSlides: true,
+    spaceBetween: 10,
+    loop: true,
+    //pagination: '.carousel{{ module }}',
+    pagination: false,
+    paginationClickable: false,
+    prevButton: '.swiper-button-prev',
+    nextButton: '.swiper-button-next',
+
+    // Default parameters
+    slidesPerView: 5,
+
+    // Responsive breakpoints
+    breakpoints: {
+        // when window width is <= 1200px
+        1200: {
+            slidesPerView: 3
+        },
+        // when window width is <= 991px
+        991: {
+            slidesPerView: 3
+        },
+        // when window width is <= 767px
+        767: {
+            slidesPerView: 2
+        },
+        // when window width is <= 480px
+        480: {
+            slidesPerView: 1
+        }
+    }
+
+});
+
+$(function() {
+    $('.product-thumb h4, .latest-blog p, .pm-review-thumb .caption .text-review').css('height', '').equalHeights();
+    $('.swiper-slide > .rewiev-wrapper > .caption > .text-rewiev, .blog-blog > .row > #content > .blog > .row > .blog-item > .summary > p').css('height', '').equalHeights();
 });

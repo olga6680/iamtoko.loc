@@ -1,0 +1,26 @@
+.swiper-button-next, .swiper-button-prev
+  transition-property: filter
+  outline: none
+  width: 56px !important
+  height: 56px !important
+  border-radius: 50%
+  cursor: pointer
+  background-repeat: no-repeat
+  background-position: 50%
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .08)
+  background: #fff
+  opacity: 0.85 !important
+  &:before, &:after
+    content: "" !important
+  &:hover, &:focus
+    background: $main-color
+    background-repeat: no-repeat
+    background-position: 50%
+    transition-property: filter
+.swiper-button-next
+  right: -21px !important
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiI+PHBhdGggZD0iTTEzIDVsMTEgMTFtMCAwTDEzIDI3IiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+) !important
+.swiper-button-prev
+  transform: scaleX(-1)
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiI+PHBhdGggZD0iTTEzIDVsMTEgMTFtMCAwTDEzIDI3IiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+) !important
+  left: -35px !important

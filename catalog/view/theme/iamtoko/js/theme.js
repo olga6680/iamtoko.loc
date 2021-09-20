@@ -38,10 +38,17 @@ $(window).scroll(function() {
 /*--------- большой слайдер на главной ---*/
 $('#slideshow0').swiper({
     mode: 'horizontal',
-    slidesPerView: 2,
-    spaceBetween: 30,
     effect: 'fade',
     autoplay: 100000,
+    autoplayDisableOnInteraction: true,
+    loop: true
+});
+
+/*--------- слайдер student ---*/
+$('#slideshow1').swiper({
+    mode: 'horizontal',
+    effect: 'fade',
+    autoplay: 5000,
     autoplayDisableOnInteraction: true,
     loop: true
 });

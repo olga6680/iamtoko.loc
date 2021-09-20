@@ -96,16 +96,8 @@ $('.swiper-container1').swiper({
         1200: {
             slidesPerView: 3
         },
-        // when window width is <= 991px
-        991: {
-            slidesPerView: 3
-        },
-        // when window width is <= 767px
-        767: {
-            slidesPerView: 2
-        },
-        // when window width is <= 480px
-        480: {
+        // when window width is <= 575px
+        575: {
             slidesPerView: 1
         }
     }

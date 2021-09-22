@@ -47,7 +47,6 @@ $('#slideshow0').swiper({
 /*--------- слайдер student ---*/
 $('#slideshow1').swiper({
     mode: 'horizontal',
-    effect: 'fade',
     autoplay: 5000,
     autoplayDisableOnInteraction: true,
     loop: true

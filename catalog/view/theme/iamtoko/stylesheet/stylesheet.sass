@@ -5,6 +5,12 @@
 
 *
   font-family: 'Museo Sans', sans-serif
+.visually-hidden
+	clip: rect(0 0 0 0)
+	height: 1px
+	margin: -1px
+	position: absolute
+	width: 1px
 html
   transition: 0.7s all
   overflow-x: hidden
@@ -21,6 +27,3198 @@ html
   text-transform: lowercase
   color: $grey-color
   font-size: 10px
+
+//***
+
+/*---------Купить в 1 клик попап---------*/
+#popup-quickorder
+	max-width: 570px !important
+	.popup-heading
+		text-align: center !important
+		border-bottom: none !important
+		top: 10px
+		margin-bottom: 10px
+		text-transform: uppercase
+		font:
+			family: 'Roboto Condensed', sans-serif !important
+	.product
+		.image
+			width: 120px !important
+		.pr-name
+			margin-right: 0
+			.quick-cell-content
+				font-size: 12px
+				text-transform: lowercase
+				font-weight: 600
+	.quantity_quickorder
+		.quick-cell-content
+			.popup-quantity
+				.form-control
+					box-shadow: none !important
+				.input-group-btn
+					.btn
+						border-radius: 0
+	.well-sm
+		border-radius: 0
+	.well
+		border: none
+		background-color: #fff
+		box-shadow: 3px 0 23px 9px rgba(0, 0, 0, 0.03)
+	.special_fast
+		.price-old
+			font-weight: 600
+			color: #777
+		.price-new
+			font-size: 16px
+			font-weight: 600
+			color: #464545
+	.options
+		.control-label
+			text-transform: lowercase
+			color: #464545
+		.radio-checbox-options
+			label
+				border-radius: 0 !important
+				border: 1px solid rgba(119, 119, 119, 0.3) !important
+				background-color: rgba(221, 221, 221, 0) !important
+				transition: background-color border .25s
+				color: #000 !important
+				box-shadow: none !important
+				&:hover, &:focus, &:active, &:after
+					background-color: rgba(221, 221, 221, .4)	!important
+					border: 1px solid rgba(119, 119, 119, 0.4) !important
+					color: #000 !important
+					box-shadow: none !important
+		.form-group:nth-child(1)
+			label
+				position: relative
+				width: 36px
+				height: 36px
+				span
+					position: absolute
+					top: 50%
+					left: 50%
+					transform: translate(-50%, -50%)
+		.form-group:nth-child(2)
+			label:not(.control-label)
+				background-color: rgba(242, 148, 200, .1)	!important
+				border: 1px solid rgba(242, 148, 200, .1) !important
+				transition: background-color border .25s
+				color: #464545
+				text-transform: lowercase
+				&:hover, &:focus
+					background-color: rgba(242, 148, 200, .2)	!important
+					border: 1px solid rgba(242, 148, 200, .2)	!important
+			input:checked + label
+					background-color: rgba(242, 148, 200, .3)	!important
+					border: 1px solid rgba(242, 148, 200, .3)	!important
+	.sections_block_rquaired, .sections_block
+
+		.form-control
+			font-size: 12px !important
+			box-shadow: none !important
+			width: 255px
+	#fastorder_data
+		.input-group-addon
+			border-radius: 0 !important
+			display: none
+	.popup-footer
+		background-color: #fff !important
+		border-top: none !important
+	#quickorder_btn
+		margin-bottom: 20px
+		.btn-quickorder-one
+			border-color: transparent
+			border-radius: 0
+			text-transform: lowercase
+			background-color: #120e10
+			color: #fff
+			padding: 8px 45px
+			font:
+				weight: 400
+				size: 16px
+			transition: background-color .25s ease
+			outline: none
+			&:hover, &:active, &:focus
+				background-color: lighten(#120e10, 10%)
+		input:checked + label
+			background-color: rgba(221, 221, 221, .4)	!important
+			border: 1px solid rgba(119, 119, 119, 0.4) !important
+	.error_input
+		border-color: #F20789 !important
+	input.error_input:placeholder
+		color: #F20789 !important
+#modal-addquickorder
+	.alert-success
+		color: #000
+		background-color: #fff
+		border-color: transparent
+
+
+/*---------все продукты---------*/
+
+.new-element-bal
+	.caption
+		h4
+			height: 28px !important
+.product-layout, #information-information .product-layout
+	position: relative
+	padding: 0
+	&:hover .attributes-size
+		display: block
+	&:hover .toclick
+		display: block
+	&:hover button:nth-child(1)
+		display: block
+	&:hover .hover-img
+		background-color: rgba(0, 0, 0, .3)
+	> .product-thumb
+		margin-right: 15px
+		padding: 0
+		text-align: center
+		margin-bottom: 20px
+		position: relative
+		.triangle-topleft
+			position: absolute !important
+			z-index: 1000
+			top: 2%
+			left: 0
+			span
+				font-size: 12px
+				font-weight: 600
+				color: red
+				background-color: rgba(255, 255, 255, .5)
+				padding: 5px 10px
+		.image
+			padding: 0 !important
+			margin: 0 !important
+			position: relative
+		.hover-img
+			width: 100%
+			height: 140px
+			position: absolute
+			bottom: 1%
+	.attributes-size
+		position: absolute
+		display: none
+		bottom: 20%
+		left: 50%
+		transform: translate(-50%, 0)
+		width: 100%
+		.attribute
+			display: inline-block
+			border: 2px solid rgba(255, 255, 255, .5)
+			color: rgba(255, 255, 255, .7)
+			padding: 5px 7px
+			font-weight: 600
+			width: 36px
+			height: 36px
+			&:not(:last-child)
+				margin-right: 5px
+	.caption
+		position: relative
+		p
+			display: none
+			margin: 0 !important
+			.price
+				margin: 0
+				padding: 0
+			&.price
+				display: block
+				text-align: left
+				font:
+					weight: 600
+					size: 16px
+					family: 'Roboto Condensed', sans-serif
+			.price-tax
+				display: none
+			.price-old
+				font-size: 14px
+				font-weight: 400
+				text-decoration: line-through
+		.rating
+			display: none
+	h4
+		text-align: left
+		margin-top: 0
+		margin-bottom: 20px
+    overflow: hidden
+		max-height: 28px
+		a
+			color: #000
+			display: block
+			height: 110%
+			overflow: hidden
+			width: 98%
+			text-decoration: none
+			outline: none
+			font:
+				weight: 500
+				size: 12px
+	.button-group
+		margin-bottom: 40px
+		> *
+			&:nth-child(3)
+				display: none
+			&:nth-child(1)
+				position: absolute
+				z-index: 1000
+				top: 75%
+				left: 48%
+				transform: translate(-50%, -50%)
+			&:nth-child(2)
+				position: absolute
+				right: 20px
+				top: 3%
+				.fa
+					position: relative
+					background-color: rgba(255, 255, 255, 0.5)
+					border-radius: 10em
+					height: 40px
+					width: 40px
+					svg
+						position: absolute
+						top: 50%
+						left: 50%
+						transform: translate(-50%, -50%)
+						width: 22px
+.product-layout
+	.modal-content
+		button:nth-child(1)
+			background-color: transparent
+			display: block
+			color: #000
+			font-size: 20px
+			left: 67%
+			top: 1%
+		.modal-body
+			top: 20%
+		textarea
+			margin-top: 20px
+/*---------Отзывы---------*/
+.review-mi
+	.col-lg-3
+		margin: 0
+		padding: 5px
+	.pm-review-thumb
+		margin: 0
+		padding: 0
+		border: none
+		box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1)
+		h4, strong
+			font-size: 14px !important
+			a
+				color: #000
+				&:hover, &:focus
+					text-decoration: none
+		.rating
+			.fa-star, .fa-stack-2x, .fa-star-o
+				color: #d9067b !important
+				font-size: 1em !important
+			.fa-star + .fa-star-o
+				color: #d9067b !important
+		.caption
+			font-size: 12px
+			.text-review
+				overflow: hidden
+				display: -webkit-box
+				-webkit-line-clamp: 3
+				-webkit-box-orient: vertical
+			.name
+				font-weight: 600
+			i:nth-child(2)
+				font-weight: 200
+			a
+				padding: 8px 0
+				margin: 0
+				color: #3f3e3e
+				font-weight: 600
+				&:hover, &:focus
+					text-decoration: underline
+		&:hover
+			transform: scale(1.03)
+
+/*---------Условия акций---------*/
+.banneraction
+	margin-bottom: 30px
+	.banner-action-title
+		color: #fff
+		width: 60%
+		h2
+			text-align: left
+			font-weight: 800
+		p
+			font-weight: 600
+			margin-bottom: 5%
+		ol li
+			margin-bottom: 10px
+			letter-spacing: 1px
+			a
+				color: #fff
+				font-weight: 600
+				text-decoration: underline
+				letter-spacing: 1px
+				&:hover, &:focus
+					text-decoration: none
+		.button-main
+			text-align: center
+			width: 100%
+			margin-bottom: 5%
+			a
+				color: #d01345
+				background: #fff
+				padding: 5px 10px 3px 10px
+				text-transform: uppercase
+				font-weight: 600
+				transition: background .25s
+				&:hover, &:focus
+					text-decoration: none
+					background: #6ce8f4
+		span
+			font-size: 12px
+			a
+				color: #fff
+				font-weight: 600
+				text-decoration: underline
+				&:hover, &:focus
+					text-decoration: none
+	.banner-action0
+		position: relative
+		.banner-action-0
+			padding: 30px
+			position: absolute
+			top: 0
+			left: 0
+	.banner-action1
+		position: relative
+		.banner-action-1
+			padding: 20px
+			position: absolute
+			top: 0
+			left: 40%
+
+/*---------Условия акций---------*/
+.information-contact
+	.schedule
+		margin-top: 20px
+		.col-md-4
+			text-align: center
+			font-size: 20px
+			div
+				margin: auto
+				display: inline-block
+			.center
+				margin-top: 10%
+				span
+					font-weight: 600
+			table
+				width: 100%
+				margin: 0 auto
+				font-weight: 600
+				td
+					padding: 5px 10px
+					span
+						font-weight: 200 !important
+						font-size: 16px
+	.color-title
+		text-align: center
+	h2
+		display: inline-block
+		margin-top: 40px
+		text-transform: none
+		padding: 5px 10px
+		font:
+			size: 18px
+			family: 'Bahnschrift', sans-serif
+			weight: 800
+		color: #fff
+		background: #F588AF
+	.contact-contact
+		margin-top: 20px
+		h3
+			font-size: 18px
+		.wrapper
+			box-shadow: 5px 5px 5px rgba(0,0,0,.1)
+			padding: 20px
+			min-height: 161px
+			text-align: center
+			.list-contact
+				text-align: left
+				display: inline-block
+				ul
+					margin: 0
+					li
+						list-style: none
+						position: relative
+						svg
+							position: absolute
+							top: 0
+							left: 0
+						p
+							padding-left: 40px
+							padding-top: 4px
+						a
+							color: #000
+					&:first-child
+						li
+							margin-bottom: 11px
+		.instagram-contact
+			text-align: center
+			.instagram
+				top: 20px
+				position: relative
+				display: inline-block
+				a
+					color: #000
+					font:
+						family: 'Hitch Hike'
+						size: 40px
+					&:hover, &:focus
+						text-decoration: none
+						color: #f20789
+				svg
+					position: absolute
+					top: 0
+					left: -1px
+				p
+					padding-left: 50px
+					margin-top: -10px
+
+		.adress-contact
+			text-align: center
+			.contact-logo
+				margin: 60px 0
+				img
+					width: 100px
+					border: 2px solid #000
+	.form-horizontal
+		margin: 0 auto
+		margin-top: 40px
+		width: 50%
+		font-size: 12px
+		.control-label
+			text-align: left
+		input
+			margin-bottom: 10px
+		legend
+			text-align: center
+			border: none
+			span
+				display: inline-block
+				background: #03A696
+				color: #fff
+				padding: 5px 10px
+				font:
+					weight: 800
+					family: 'Bahnschrift', sans-serif
+					size: 18px
+		.form-group.required
+			margin-top: 30px
+			.control-label:not(span)::before
+				margin-right: 10px
+		.form-group.required::before, .form-group.required::after
+			display: none
+	input[type="checkbox"]
+		position: relative
+		margin: 4px 0 0 10px
+		line-height: normal
+		padding: 0
+		text-align: left
+		font-size: inherit
+		color: inherit
+		appearance: checkbox
+		height: 13px
+	.buttons .pull-right
+		margin-top: 20px
+		a
+			color: #f20789
+		.btn-primary
+			margin-top: 10px
+			background-color: rgba(0, 0, 0, 1)
+			border-color: rgba(0, 0, 0, 1)
+			transition: background-color border-color .25s
+			&:hover, &:focus
+				background-color: rgba(0, 0, 0, .8)
+				border-color: rgba(0, 0, 0, .9)
+		.btn
+			border-radius: 0
+.modal-body
+	.security
+		width: 300px !important
+		padding: 0 !important
+		margin: 0
+
+
+/*---------Скролл вверх---------*/
+.scrollup
+	display: none
+	position: fixed
+	color: #fff
+	background-color: rgba(148, 146, 158, .2)
+	padding: 4px 10px
+	bottom: 0
+	right: 20px
+	font-size: 20px
+	text-align: center
+	transition: background-color .25s
+	transition: background-color .25s, opacity .5s, visibility .5s
+	cursor: pointer
+	z-index: 10000
+	&:hover
+		background-color: rgba(255, 102, 196, .8)
+/*---------Страничка о нас---------*/
+.banner-about
+	background-image: url(/image/catalog/banners/programma-loyalnosti-iamtoko.jpg)
+	.nav.navbar-nav
+		position: relative
+		left: 50%
+		box-sizing: border-box
+		height: auto
+		> li
+			text-align: center
+			position: relative
+			right: 50%
+			&:not(:last-child)
+				margin-right: 20px
+			.label-help
+				color: #000
+				display: inline-block
+				background: #f5ee95
+				padding: 5px
+				font-weight: 600
+				margin-top: 10px
+			.icon-help
+				width: 100px
+				height: 100px
+				background-color: #fff
+				border-radius: 50%
+				position: relative
+				padding: 5px
+				margin: auto
+				svg
+					position: absolute
+					top: 50%
+					left: 50%
+					transform: translate(-50%, -50%)
+					width: 40px
+					height: 40px
+		.delivery
+			svg
+				stroke: black
+				stroke-width: 2
+		.contact svg
+			stroke: black
+			stroke-width: 1
+		.guarante	svg
+			width: 50px
+			height: 50px
+.banner-about-mobile
+	text-align: center
+	padding: 5px 0
+	a
+		display: inline-block
+		color: #000
+		margin: 5px 0
+		padding: 10px
+		background: rgba(245, 238, 149, 1)
+		transition: background box-shadow 0.25s
+		border-top-left-radius: 21px 50%
+		border-top-right-radius: 21px 50%
+		border-bottom-right-radius: 21px 50%
+		border-bottom-left-radius: 21px 50%
+		box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.4)
+		&:hover, &:focus
+			background: rgba(245, 238, 149, .95)
+			box-shadow: none
+h1
+	text-align: center
+	text-transform: uppercase
+	font-size: 22px
+.about-text
+	h2
+		text-transform: none
+		margin-top: 20px
+		font-size: 60px
+	.utp-text
+		text-align: center
+		margin-bottom: 20px
+		p
+			display: inline-block
+			background: #F2B705
+			padding: 10px
+			color: #fff
+			font-weight: 800
+
+	.page
+		h2
+			font-size: 20px
+			text-transform: uppercase
+		h3
+			font-size: 14px
+			font-weight: 600
+
+		ul
+			margin: 0
+			padding: 0
+			margin-top: 70px
+			li
+				list-style: none
+				padding: 0
+				margin: 0
+				.wrapp-help
+					display: flex
+					flex-direction: row
+					margin-top: 5px
+					margin-bottom: 30px
+			li:nth-child(2)
+				.icon-about
+					padding-right: 27px
+					margin-left: -10px
+					svg
+						width: 40px
+						height: 40px
+		.icon-about
+			position: relative
+			padding-right: 30px
+		.about-galery
+			font-size: 10px
+			span
+				font-weight: 600
+				margin-top: 10px
+				display: block
+				font-size: 12px
+
+/*---------Частые вопросы---------*/
+.faq
+	.faq-tab .nav-faq
+		margin: 0
+		padding: 0
+		margin-top: 50px
+		a[aria-expanded="true"]::before, a[aria-expanded="true"]::after
+			display: none
+		.active
+			text-decoration: underline
+		li
+			list-style: none
+			margin-bottom: 20px
+			a
+				color: #000
+
+	.faq-accordion
+		a[aria-expanded="true"]::before, a[aria-expanded="true"]::after
+			display: none
+		.tab-content
+			h3
+				margin-top: 20px
+				font-weight: 600
+				font-size: 16px
+				text-transform: none
+			img
+				margin-right: auto
+				margin-left: auto
+			.col-md-12
+				border: 1px solid #ddd
+				margin: 10px 0
+	.collapsed::before, .collapsed::after
+		display: none !important
+/*---------Доставка оплата---------*/
+.payment-delivery
+	h2
+		margin: 50px 0
+	h3
+		font-size: 16px
+		text-transform: none
+		text-align: left
+		margin-top: 20px
+	.payment, .delivery
+		border: 1px solid #ddd
+	.payment-icon
+		text-align: right
+		svg
+			width: 165px
+			height: auto
+	.delivery
+		margin-top: 20px
+		.delivery-icon div
+			text-align: right
+			margin-bottom: 10px
+		ul li
+			margin-bottom: 10px
+			a
+				color: #f20789
+/*---------Гарантия---------*/
+#account-return
+	.account-return
+		ul li
+			margin-bottom: 10px
+			a
+				color: #f20789
+	h2
+		margin: 40px 0
+	p
+		text-align: center
+	.page
+		p
+			text-align: left
+		span
+			display: block
+			margin-bottom: 20px !important
+	.input-group-btn
+		top: -10px
+	.form-horizontal
+		margin-top: 30px
+	input[type="radio"]
+		appearance: checkbox
+		height: 13px
+	.form-group
+		margin: 20px 0
+	.comment
+		.col-sm-10, .col-sm-2
+			top: 40px !important
+	.buttons.clearfix
+		margin-top: 40px
+/*---------безопасность---------*/
+.security
+	margin-top: 30px
+	font-size: 12px
+	h2, h3
+		text-align: left
+		font-size: 16px
+		text-transform: none
+		margin: 20px 0
+		font-weight: 600
+	span
+		font-size: 10px
+		font-weight: 200
+	a
+		color: #f20789
+
+/*---------Текст в категории Женские костюмы---------*/
+.costume
+	h2
+		font-size: 18px
+	h3
+		font-size: 16px !important
+		color: #3d3d3d
+	.title-page
+		margin-top: 40px
+	.utp-text
+		background-color: #F2E205
+		text-align: center
+		font-weight: 600
+		padding: 10px 10px 0 10px
+		display: inline-block
+	ul a
+		color: #F20789
+		text-decoration: underline !important
+		&:hover, &:focus
+			text-decoration: none !important
+	.appeal-hom, .centered
+		text-align: center
+
+/*---------Текст в категории Женские костюмы---------*/
+.costume-sport
+	.title-text
+		margin-top: 30px
+		text-align: center
+		span
+			font-style: italic
+	.page
+		ul li ul li
+			text-align: left !important
+			margin-left: 20%
+		.delivery
+			text-align: center
+			svg
+				width: 60px
+				height: 60px
+				margin: 20px 0
+				&:hover, &:focus
+					fill: #000
+			a
+				color: #000
+				font-weight: 600
+				text-decoration: underline !important
+				&:hover, &:focus
+					text-decoration: none !important
+		.button-hom-text
+			a
+				width: initial
+/*---------Кнопка перезвоним---------*/
+#form-callbackfooter-footer
+	height: 100%
+	.col-sm-12
+		margin-bottom: 20px
+	.col-sm-12:first-child
+		margin-top: 15px
+.button-coll-side
+	position: fixed
+	display: none
+	transform: rotate(90deg)
+	transform-origin: right top 0
+	right: 0
+	padding: 0
+	padding-left: 20px
+	bottom: 35%
+	z-index: 1000
+	color: #ffffff
+	background-color: #d01345
+	font-size: 14px
+	letter-spacing: 1px
+	font-weight: 500
+	text-transform: lowercase
+	height: auto
+	outline: none
+	&:hover
+		background: darken(#d01345, 5%)
+		color: #fff
+		.fa
+			-webkit-animation: wiggle .05s alternate ease infinite
+			animation: wiggle .05s alternate ease infinite
+			background: transparent
+	&:active,
+	&:focus
+		background: darken(#d01345, 10%)
+		color: #fff
+	.fa
+		background: darken(#d01345, 5%)
+		font-size: 20px
+		padding: 6px	9px
+		margin-left: 15px
+		transform: rotateY(-180deg)
+
+@-webkit-keyframes wiggle
+	from
+		-webkit-transform: rotate(0deg)
+	to
+		-webkit-transform: rotate(-30deg)
+/*---------Кнопка подарок Скидка---------*/
+.sale-popup, .news-popup
+	max-width: 320px
+	position: relative
+	margin: auto
+	img
+		width: 320px
+		display: block
+		position: relative
+	.left-salepopup, .left-newspopup
+		position: absolute
+		top: 10%
+		left: 35%
+		width: 25%
+		text-transform: uppercase
+		font:
+			family: 'Roboto Condensed', sans-serif
+			weight: 400
+			size: 20px
+	.left-newspopup
+		font-size: 16px
+		left: 5%
+		width: 35%
+		text-transform: lowercase
+	.bottom-salepopup, .bottom-newspopup
+		position: absolute
+		top: 30%
+		width: 60%
+		left: 35%
+		font:
+			family: 'Hitch Hike', sans-serif
+			size: 30px
+	.bottom-newspopup
+		font-size: 19px
+		left: 5%
+		width: 90%
+		top: 32%
+	.button-salepopup, .button-newspopup, .button-newspopup-see
+		position: absolute
+		top: 70%
+		left: 31.5%
+		a
+			color: #ffffff
+			background-color: rgba(0, 0, 0, 1)
+			border-color: rgba(0, 0, 0, 1)
+			transition: background-color, border-color .25s ease
+			padding: 10px
+			text-transform: lowercase
+			text-decoration: none
+			outline: none
+			&:hover, &:focus
+				background-color:	rgba(0, 0, 0, .8)
+				border-color:	rgba(0, 0, 0, .9)
+	.button-newspopup
+		top: 45%
+		a
+			padding: 8%
+	.button-newspopup-see
+		top: 85%
+		left: 24%
+		a
+			padding: 5px 10px
+			background-color: rgba(242, 148, 200, 1)
+			border-color: rgba(242, 148, 200, 1)
+			transition: background-color border-color .25s
+			&:hover, &:focus
+				background-color: rgba(242, 148, 200, .8)
+				border-color: rgba(242, 148, 200, 1)
+.button-sale-popup
+	bottom: 25%
+	transform: rotate(0)
+	padding: 0
+	height: 44px
+	right: 0
+	.fa
+		margin: 0
+		padding: 6px 6px 5px 6px
+		svg
+			fill: #ffffff
+			width: 22px
+/*---------Footer---------*/
+.main-footer
+	margin-top: 50px
+	margin-left: 10px
+	margin-right: 10px
+	.section1-footer
+		background-color: #120e10
+		height:
+		.social-footer
+			list-style: none
+			display: inline-block
+			margin-left: 30px
+			li
+				float: left
+				margin: 5px 40px -35px 0
+				a
+					outline: none
+					text-decoration: none
+				svg
+					fill: #fff
+					width: 20px
+					&:hover, &:focus
+						fill: #F20789
+	.registration-footer
+		color: #fff
+		display: inline-block
+		margin-left: 28%
+		margin-top: 1%
+		letter-spacing: 1.8px
+		font:
+			family: 'Roboto Condensed', sans-serif
+			size: 16px
+		.login-name
+			text-transform: uppercase
+		p
+			float: left
+		a
+			text-decoration: none
+			outline: none
+			color: rgba(255, 102, 196, 1)
+			transition: color .25s
+			margin-left: 20px
+			&:hover, &:focus
+				color: rgba(255, 102, 196, .6)
+	.section2-footer
+		background-color: #dbdee0
+		position: relative
+		.menu-footer
+			list-style: none
+			display: inline-block
+			margin: 20px 0 -5px 30px
+			li
+				float: left
+				margin-right: 100px
+				a
+					text-decoration: none
+					outline: none
+					color: #120e10
+					font:
+						weight: 600
+						size: 16px
+					&:hover, &:focus
+						color: #F20789
+	.information-footer
+		margin-left: 55px
+		span
+			font:
+				family: 'Roboto Condensed', sans-serif
+				weight: 800
+				size: 14px
+			letter-spacing: 1px
+			text-transform: uppercase
+		a
+			text-decoration: none
+			outline: none
+			color: #120e10
+			line-height: 1.7
+			&:hover, &:focus
+				color: #F20789
+		.footer-phone
+			font-weight: 600
+	.viber-footer, .telegram-footer
+		margin-top: 15px
+		margin-right: 30px
+		float: left
+	.foot-log
+		position: absolute
+		bottom: 0
+		left: 85%
+	.logo-footer
+		a
+			font:
+				family: 'Montserrat Alternates', sans-serif
+				weight: 600
+				size: 30px
+			color: #000
+			outline: none
+			text-decoration: none
+			&:hover,
+			&:focus
+				color: #F20789
+		svg
+			width: 40px
+			height: auto
+	.reserv-footer
+
+
+/*---------Форма регистрации попап---------*/
+.content
+	background-color: #fff
+	position: relative
+	max-width: 320px
+	margin: auto
+	padding: 15px
+	top: 25%
+	.social-registration
+		position: relative
+		width: 100%
+		height: 40px
+		margin-top: 30px
+		font:
+			family: 'Roboto Condensed', sans-serif
+			size: 18px
+	.social-icons
+		display: inline-block
+		position: absolute
+		right: 0
+		top: 0
+		li
+			list-style: none
+			float: right
+			margin-left: 20px
+			svg
+				fill: #94929e
+				&:hover, &:focus
+					fill: #F20789
+	.registration-sub
+		h3
+			text-align: center
+			font:
+				family: 'Roboto Condensed', sans-serif
+			margin-bottom: -10px
+		a
+			color: #F20789
+			font-weight: 600
+		br
+			margin-bottom: 10px
+		.smile
+			text-align: center
+			font-weight: 600
+		span
+			font-size: 12px
+			br
+				margin-bottom: 0
+	.login-form
+		.form-group
+			margin-top: 25px
+			margin-bottom: 25px
+		#loginBtn
+			border-radius: 0
+			color: #ffffff
+			font-weight: 400
+			font-size: 18px
+			text-transform: lowercase
+			outline: none
+			transition: background-color, border-color .25s ease
+			background-color: rgba(148, 146, 158, .7)
+			border-color: rgba(148, 146, 158, .7)
+			&:hover, &:focus
+				background-color: rgba(148, 146, 158, .5)
+				border-color: rgba(148, 146, 158, .5)
+		.forget-password
+			color: #120e10
+			margin-left: 23%
+			text-decoration: underline
+			&:hover, &:focus
+				text-decoration: none
+		.block-title
+			display: inline-block
+			width: 100%
+			text-align: center
+			font:
+				family: 'Roboto Condensed', sans-serif
+				size: 18px
+				weight: 400
+			color: #ffffff
+			text-transform: uppercase
+			.sign-in, .create-account
+				text-align: center
+				padding: 10px
+			.sign-in
+				background: #F20789
+			.create-account
+				background: #120e10
+				a
+					color: #fff
+	.register-form
+		.block-title
+			display: inline-block
+			text-align: center
+			width: 100%
+			font:
+				family: 'Roboto Condensed', sans-serif
+				size: 18px
+				weight: 400
+			color: #ffffff
+			text-transform: uppercase
+			#register-back-btn, .create-account
+				width: 50%
+				padding: 10px
+			#register-back-btn
+				border-radius: 0
+				background: #120e10
+				font-size: .95em
+				&:hover, &:focus
+					color: #ffffff
+					text-decoration: underline
+			.create-account
+				background: #F20789
+		p
+			font-size: 12px
+			text-align: center
+			margin-top: 10px
+			margin-bottom: 15px
+		.mt-checkbox
+			font-weight: 400
+			font-size: 12px
+			a
+				color: #F20789
+		#register-submit-btn
+			border-radius: 0
+			position: relative
+			left: 50%
+			transform: translate(-50%, 0)
+			font-weight: 400
+			font-size: 18px
+			text-transform: lowercase
+			outline: none
+			transition: background-color, border-color .25s ease
+			background-color: rgba(148, 146, 158, .7)
+			border-color: rgba(148, 146, 158, .7)
+			&:hover, &:focus
+				background-color: rgba(148, 146, 158, .5)
+				border-color: rgba(148, 146, 158, .5)
+	.has-error .checkbox, .has-error .checkbox-inline, .has-error .control-label, .has-error .help-block, .has-error .radio, .has-error .radio-inline, .has-error.checkbox label, .has-error.checkbox-inline label, .has-error.radio label, .has-error.radio-inline label
+		color: #F20789
+	.has-error .form-control
+		border-color: #F20789
+	.forget-form
+		h3
+			text-align: center
+		.form-group
+			margin: 20px 0
+		button
+			border-radius: 0
+			color: #ffffff
+			text-transform: lowercase
+			font-size: 18px
+		#back-btn
+			background-color: rgba(0, 0, 0, 1)
+			transition: background-color, border-color .25s ease
+			font-size: 17px
+			&:hover, &:focus
+				background-color: rgba(0, 0, 0, .8)
+				border-color: rgba(0, 0, 0, .8)
+		#forget-submit-btn
+			background-color: rgba(255, 102, 196, 1)
+			border: rgba(255, 102, 196, 1)
+			transition: background-color, border-color .25s ease
+			&:hover, &:focus
+				background-color: rgba(255, 102, 196, .8)
+				border-color: rgba(255, 102, 196, .8)
+	.alert-success, .alert-danger
+		border-radius: 0
+.login .content .forget-form,
+.login .content .register-form
+	display: none
+
+#tab-data
+	.form-group
+		.dropdown-menu
+			height: auto
+/*---------КАТЕГОРИИ---------*/
+.breadcrumb
+	padding: 0
+	margin: 0
+	background-color: transparent
+	border-radius: 0
+	li
+		a
+			color: #94929e
+			font-size: 12px
+			text-transform: lowercase
+.btn-quick-order
+	border-radius: 0 !important
+
+/* категории */
+#product-category, .product-all
+	position: relative
+	h1
+		font:
+			family: 'Roboto Condensed', sans-serif
+			weight: 400
+			size: 26px
+		text-transform: lowercase
+		letter-spacing: 1.1px
+		text-align: center
+		margin-top: 40px !important
+	.category-content-thumb
+		margin-left: 20px
+	/* sub-категории */
+	.category-in-category
+		float: left
+		width: 100%
+		overflow: hidden
+		position: relative
+		margin-top: 20px
+		ul
+			margin: 0
+			margin-top: 10px
+			padding: 0
+			float: left
+			position: relative
+			left: 50%
+			li
+				list-style: none
+				float: left
+				position: relative
+				right: 50%
+				margin-right: 5px
+				margin-bottom: 35px
+				a
+					color: #000
+					font-size: 12px
+					background: rgba(219, 222, 224, 0.3)
+					transform: background .0.25s
+					padding: 10px 20px
+					border-radius: 200px
+					&::after, &:hover
+						background: rgba(219, 222, 224, .5)
+
+
+	.container-rewiev
+		.caption
+			margin-bottom: 60px
+		.btn-show-all-rewiev
+			text-decoration: underline
+			&:hover
+				text-decoration: none
+
+	/*---------Новинки с�� скидкой---------*/
+	.breadcrumb
+		margin-top: 60px
+	.container-fluid.sale-category
+		padding: 0
+		position: absolute
+		top: 0
+		width: 100%
+	/*---------Боковое меню---------*/
+	#column-left
+		width: 15%
+		margin-left: 80px
+		margin-right: -15px
+	.menu-side
+		margin-top: 20px
+	.menu-side-item
+		font-weight: 400
+		font-size: 12px
+		padding-top: 4px
+		padding-bottom: 4px
+		border: none
+		&:nth-child(2)
+			margin-top: 15px
+		&:first-child, &:last-child
+			border-radius: 0
+		&:first-child
+			font-size: 14px
+		&:hover, &:focus
+			background-color: #000 !important
+			color: #fff
+	.button-sub-menu-left
+		position: relative
+		border-top: 1px solid #ddd
+		height: 60px
+		.clos-sort
+			&:after, &:before
+				right: 15px
+				top: 30%
+		span
+			padding-left: 15px
+			display: block
+			position: absolute
+			top: 35%
+			font-size: 14px
+			font-weight: 600
+	#sub-menu-left
+		margin-top: 0
+		.menu-side-item:first-child
+			font-size: 12px !important
+			margin-bottom: -15px
+	.active
+		background-color: #000 !important
+		padding-top: 2px
+		padding-bottom: 2px
+		color: #fff !important
+	#content
+		padding-right: 0
+		padding-left: 0
+		hr
+			width: 100%
+			height: 1px
+		p
+			margin-bottom: 40px
+		.review-main
+			margin-top: -20px
+		.newsletter-mi
+			margin-top: -20px
+		#list-view, #grid-view, #compare-total, .input-limit, #input-limit
+			display: none
+		.input-group-addon
+			border-radius: 0
+			border: none
+			background-color: transparent
+			font-weight: 600
+			text-transform: lowercase
+			letter-spacing: .7px
+			font-size: 14px
+		.input-group .form-control
+			text-transform: lowercase
+			letter-spacing: .3px
+		.input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn
+			border-radius: 0
+		.form-control
+			box-shadow: none
+		.input-group-sm > .form-control, .input-group-sm
+			position: relative
+.product-layout button:nth-child(1).btn-quick-order
+	color: #000 !important
+	position: absolute
+	text-align: center
+	background-color: rgba(255, 255, 255, .5) !important
+	padding: 5px 30px !important
+	width: 78% !important
+	top: 35% !important
+	left: 48% !important
+	transform: translate(-50%, -50%) !important
+	transition: background-color .0.25s !important
+	&:hover, &:focus
+		background-color: rgba(255, 255, 255, .3) !important
+	.oneclick
+		position: relative
+	span
+		text-transform: lowercase !important
+		font-weight: 600
+		font-size: 14px !important
+		margin-top: -5px
+	svg
+		position: absolute
+		width: 20px
+		height: 22px
+		left: 0
+
+.latest-product, .sale-product
+	.product-layout button:nth-child(1).btn-quick-order svg
+		left: -20px
+
+ /* сортировка */
+	label
+		font-size: 12px !important
+		display: inline-flex
+		align-items: center
+		user-select: none
+.radio-cat
+	&:nth-child(2), &:nth-child(3),
+	&:nth-child(8), &:nth-child(9),
+	&:nth-child(10), &:nth-child(11)
+		display: none !important
+
+
+
+ /* для элемента label связанного с .custom-radio */
+.custom-radio
+	z-index: -1
+	opacity: 0
+.radio-cat
+	/* создание в label псевдоэлемента  before со следующими стилями */
+	label
+		margin-left: -30px
+		&:before
+			content: ''
+			display: inline-block
+			width: 1.5em
+			height: 1.5em
+			flex-shrink: 0
+			flex-grow: 0
+			border: 1px solid #adb5bd
+			border-radius: 50%
+			margin-right: 0.5em
+			background-repeat: no-repeat
+			background-position: center center
+			background-size: 50% 50%
+ /* стили при наведении курсора на радио */
+.custom-radio:not(:disabled):not(:checked) + label:hover::before
+    border-color: #ffd1ed
+/* стили для активной радиокнопки (при нажатии на неё) */
+.custom-radio:not(:disabled):active + label::before
+  background-color: #ffd1ed
+  border-color: #ffd1ed
+/* стили для радиокнопки, находящейся в состоянии checked */
+.custom-radio:checked + label::before
+	border-color: #F20789
+	background-color: #F20789
+.custom-radio:checked + label::after
+	content: ''
+	display: inline-block
+	position: absolute
+	left: 19px
+	width: .5em
+	height: .5em
+	flex-shrink: 0
+	flex-grow: 0
+	border: 1px solid #fff
+	background-color: #fff
+	border-radius: 50%
+	margin-right: 0.5em
+	background-repeat: no-repeat
+	background-position: center center
+	background-size: 50% 50%
+/* баннер в категории */
+.ban-top-cat
+	display: block
+	margin: 0
+	margin-top: 0
+	background-color: #e1f86b
+	font-size: 18px
+	text-transform: uppercase
+	font-weight: 400
+	padding: 15px 0
+	color: #464545
+	a
+		color: #464545
+		outline: none
+		text-decoration: underline
+		font-size: 14px
+		text-transform: lowercase
+		&:hover
+			text-decoration: none !important
+
+.banner-pro
+	padding-right: 15px
+	padding-bottom: 15px
+	.col-md-6
+		margin: 0
+		padding: 0
+		img
+			padding: 0
+			margin: 0
+			position: relative
+		.centered
+			text-align: center
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+	h3
+		display: inline-block
+		font-weight: 800
+		text-transform: uppercase
+		font-size: 45px
+		transform: scale(.5, 1)
+	.color-burgundy
+		background: #9e2e36
+		h3
+			color: #f89098
+	.color-corall
+		background-color: #f6adb2
+		h3
+			color: #9e2e36
+		a
+			color: #9e2e36
+			text-decoration: underline !important
+			&:hover, &:focus
+				text-decoration: none !important
+
+
+
+
+
+/*---------Панель открытия/закрытия в фильтрах---------*/
+.container-sort
+	margin-top: -10px
+	margin-left: 20px
+	.out-pan
+		position: relative
+		width: 190px
+		span
+			right: 1em
+			font-weight: 600
+			text-transform: lowercase
+			letter-spacing: 1px
+		.clos-sort:before,
+		.clos-sort:after
+			position: absolute
+			right: 2em
+			top: .1em
+		.collapsed:before,
+		.collapsed:after
+			right: 2em
+			top: .1em
+	.sub-sort
+		margin-top: 20px
+.clos-sort
+	color: inherit
+	font-size: 20px
+	font-weight: 200
+	&:hover, &:focus
+		color: inherit
+a[aria-expanded="true"]:after,
+a[aria-expanded="true"]:before
+	font-family: FontAwesome
+	content: '\f106' !important
+.clos-sort:before,
+.clos-sort:after,
+	position: absolute
+	right: 0
+	top: -15%
+	font-family: FontAwesome
+	content: '\f107'
+.clos-sort-plus:before,
+.clos-sort-plus:after,
+	position: absolute
+	font-family: FontAwesome
+	content: '\f107'
+	right: 0
+	top: -30%
+	padding: 0 5px
+.collapsed:before,
+.collapsed:after
+	display: block
+	position: absolute
+	font-family: FontAwesome
+	content: '\f107'
+	right: 0
+	padding: 0 5px
+	top: -.2em
+
+#ocfilter, #column-left
+	.clos-sort:before,
+	.clos-sort:after,
+	.clos-sort-plus:before,
+	.clos-sort-plus:after,
+	.collapsed:before,
+	.collapsed:after
+		color: #000
+	.clos-sort:before,
+	.clos-sort:after,
+	.clos-sort-plus:before,
+	.clos-sort-plus:after
+	.collapsed:before,
+	.collapsed:after
+/*---------Фильтр---------*/
+#ocfilter
+	top: 0
+	left: -20%
+	border-radius: 0
+	border: none
+	box-shadow: none
+	.clos-sort:after, .clos-sort:before
+		top: 15%
+	.ocf-option-name
+		position: relative
+	.panel-heading
+		border-bottom: none
+		border-top: 1px solid #ddd
+		background-color: transparent
+		font-weight: 600
+		color: #000
+		letter-spacing: 1px
+		padding: 30px 0 10px 15px
+	.noUi-connect
+		background: #F20789
+		box-shadow: inset 0 0 3px #000
+	.noUi-horizontal
+		height: 6px
+	.noUi-handle
+		border-radius: 0
+		height: 15px
+		width: 4px
+		left: -1px
+		background: #000
+		border: 1px solid #000
+	.noUi-handle::after, .noUi-handle::before
+		content: none
+	.ocfilter-option label.ocf-selected
+		color: #F20789
+		font-weight: 600
+	.ocfilter-option label
+		collor: #000000
+		font-weight: 600
+	.ocfilter-option label small
+		background-color: #eef0f1
+		color: #2c2b30
+	.badge
+		border-radius: 0
+		padding: 5px
+	button
+		background-color: #F20789
+		border-color: #F20789
+		border-radius: 0
+.ocfilter-mobile-handle
+	transform: rotate(-90deg)
+	.btn
+		background-color: rgba(0, 0, 0, 1)
+		border-color: rgba(0, 0, 0, 1)
+		transition: background-color, border-color .25s ease
+		text-transform: lowercase
+		font-weight: 600
+		letter-spacing: 1.5px
+		padding-top: 2px
+		&:focus, &:hover
+			background-color: rgba(0, 0, 0, 7)
+			border-color: rgba(0, 0, 0, 7)
+.ocfilter-option-popover
+	border-radius: 0
+	.popover-content
+		padding: 0
+		font:
+			family: 'Roboto Condensed', sans-serif
+.ocfilter-mobile
+	.ocfilter-option-popover
+		margin-left: 40%
+
+/*---------Форма подписки попап---------*/
+.form-news-popup
+	height: 120px
+	background: #fff
+	max-width: 320px
+	position: relative
+	margin: auto
+	.input-group
+		width: 60%
+		margin-top: 20%
+
+/*---------Пагинация---------*/
+[data-bal="bal-results"]
+	display: none
+.pagination > li
+
+.pagination>li>a, .pagination>li>span
+	color: #000
+	border: none
+	font-weight: 600
+	&:hover, &:active, &:focus
+		color: #000
+		background-color: transparent !important
+		border-color: transparent !important
+		text-decoration: underline !important
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover
+	background-color: transparent
+	color: #F20789
+.row.bal
+	height: 30px
+	.col-sm-6.col-xs-12
+		height: 30px
+.bal-div
+	position: relative
+.bal-box-next
+	position: absolute
+	top: 25px
+	right: 0
+	span
+		font-size: 12px
+		display: block
+		margin-top: 15px
+		margin-left: 20px
+	a
+		text-transform: lowercase
+		padding: 5px 20px
+		background-color: rgba(0, 0, 0, 1)
+		border-color: rgba(0, 0, 0, 1)
+		color: #fff
+		margin-right: 40px
+		transition: background-color border-color .25s
+		&:hover, &:focus
+			background-color: rgba(0, 0, 0, .85)
+			border-color: rgba(0, 0, 0, 1)
+
+/*---------Карточка товара---------*/
+#product-product
+	margin-top: 30px
+	.thumbnails
+		overflow: hidden
+		a
+			border-radius: 0
+			padding: 0
+			border: none
+			img
+				width: 100%
+	h1
+		margin-top: 50px
+		font:
+			weight: 600
+			size: 20px
+		text-align: center
+		text-transform: lowercase
+		height: auto !important
+	.list-unstyled
+		text-align: center
+		margin-top: 20px
+		margin-bottom: 15px
+		h2
+			font-size: 16px
+			font-weight: 600
+			color: #464545
+		h3
+			font-size: 14px
+			margin-top: 5px
+		span
+			font-weight: 600
+			color: #777
+	ul
+		margin: 0
+		padding: 0
+		list-style-position: inside
+		li
+			margin: 0
+			padding: 0
+	.model-product
+		text-transform: lowercase
+		font-weight: 600
+		color: #464545
+	#product
+		h3
+			display: none
+		/*--------Размер и цвет---------*/
+		.form-group:nth-child(2)
+			text-align: center
+			position: relative
+			.control-label
+				display: none
+			.checkbox, .radio
+				display: inline-block
+				margin-right: 5px
+				width: 36px
+				height: 36px
+				input[type=radio]:checked + span
+					color: #f294c8
+				font:
+					family: 'Tavolga', sans-serif
+					size: 1.1em
+					weight: 800
+				border: 1px solid rgba(119, 119, 119, 0.7)
+				background-color: rgba(221, 221, 221, 0)
+				transition: background-color border .25s
+				&:hover, &:focus
+					background-color: rgba(221, 221, 221, .5)
+					border: 1px solid rgba(119, 119, 119, 0.7)
+				label
+					padding: 6px 8px
+			input[type=checkbox], input[type=radio]
+				position: absolute
+				z-index: -1
+				opacity: 0
+		.form-group:nth-child(3)
+			margin-left: 22px
+			.radio
+				display: inline-block
+			input[type=radio]
+				position: absolute
+				z-index: -1
+				opacity: 0
+			.control-label
+				display: none
+			span
+				display: none
+			.img-thumbnail
+				border-radius: 0
+				border: none
+				padding: 0
+				margin: 0
+				width: 100px
+				height: auto
+				&:hover, &:focus
+					filter: opacity(75%)
+			input[type=radio]:checked + img
+				filter: opacity(75%)
+			label
+				margin: 0
+				padding: 0
+		/*--------Таблица размеров---------*/
+		.size-product
+			order: 2
+			text-align: center
+			margin-bottom: 20px
+			position: relative
+			svg
+				width: 55px
+				height: 45px
+				position: absolute
+				right: 20%
+				top: -10px
+				&:hover, &:focus, &:active
+					fill: #F20789
+			.button-sizetable
+				text-decoration: underline
+				text-transform: lowercase
+				color: #464545
+				font-weight: 600
+				&:after, &:before
+					display: none
+				&:hover, &:focus
+					text-decoration: none
+			.sizetable-product
+				margin-top: 20px
+				table
+					text-align: center
+					border-collapse: collapse
+					td:first-child, tr:first-child
+						background: rgba(221, 221, 221, 0.7)
+						color: #000
+						font-weight: 600
+					td
+						background: rgba(221, 221, 221, 0.3)
+						border-color: #000
+		/*--------Сброс параметров---------*/
+		.form-group:nth-child(4)
+			text-align: center
+			#clear_options
+				text-transform: lowercase
+				text-decoration: none
+				outline: none
+				border: 1px solid rgba(119, 119, 119, 0.7)
+				background-color: rgba(221, 221, 221, 0.3)
+				padding: 5px 20px
+				color: #464545
+				font-weight: 600
+				transition: background-color border .25s
+				&:hover, &:focus
+					background-color: rgba(221, 221, 221, .5)
+					border: 1px solid rgba(119, 119, 119, 0.7)
+		/*--------Колличество---------*/
+		.form-group:nth-child(5)
+			text-align: center
+			margin-top: 46px
+			position: relative
+			text-transform: lowercase
+			color: #464545
+		#input-quantity
+			width: 20%
+			position: absolute
+			text-align: center
+			top: 13%
+			left: 50%
+			transform: translate(-50%, 0)
+		/*--------Кнопка купить---------*/
+		#button-cart, .btn-quick-order
+			margin-top: 75px
+			border: none
+			background-color: #120e10
+			color: #fff
+			padding: 15px 45px
+			text-transform: lowercase
+			font:
+				weight: 400
+				size: 16px
+			transition: background-color .25s ease
+			outline: none
+			&:hover, &:active, &:focus
+				background-color: lighten(#120e10, 10%)
+		.btn-quick-order
+			margin-top: 20px
+			background-color: rgba(242, 148, 200, 1)
+			transition: background-color .25s ease
+			&:hover, &:focus, &:active
+				background-color: #fd7dc4
+			i
+				display: none
+		/*--------Доставка оплата---------*/
+		.dilivery-product
+			top: 10px
+			height: auto
+			.payment-delivery-product
+				text-align: right
+			.col-md-6
+				padding: 0
+				margin-top: 10px
+				img
+					width: 40%
+				span
+					font-size: 8px
+				a
+					color: #464545
+					text-transform: lowercase
+					font-weight: 600
+					text-decoration: underline
+					&:hover, &::after
+						text-decoration: none
+				.dropdown-menu
+					border-radius: 0
+					border: none
+					padding: 20px 10px
+					font-size: 12px
+					li
+						list-style: none
+						a
+							display: block
+							margin-top: 10px
+	/*--------Описание продукта---------*/
+	#content
+		button.pull-right.btn.btn-primary
+			display: none
+		.product-information
+			margin-top: 80px
+			a[aria-expanded="true"]::before, a[aria-expanded="true"]::after
+				display: none
+			.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th
+				border-top: none !important
+				padding: 0
+				padding-bottom: 5px
+				font-size: 12px
+				text-transform: lowercase
+				font-weight: 600
+				strong, b
+					color: #464545
+					font-weight: 400
+			#attribute-8, #attribute-7
+				display: none
+			.nav-tabs
+				margin-bottom: 40px
+				#tab-review
+					display: none !important
+				> li
+					float: none
+					display: inline
+					margin-bottom: 1em
+					margin-right: 40px
+					text-align: center
+					&::after, &::before
+						box-sizing: none
+					> a
+						border: none
+						border-radius: 0
+						color: #464545
+						display: table-cell
+						transform: none
+						padding: 0
+						padding-bottom: 1px
+						text-transform: lowercase
+						font:
+							size: 14px
+							weight: 600
+						outline: none
+						&:hover
+							background-color: transparent
+							border-bottom: 3px solid #f294c8 !important
+			.nav-tabs > li.active > a
+				background-color: transparent
+				border-bottom: 3px solid #f294c8 !important
+				color: #000
+				transform: none
+				border: none
+				&:hover
+			.tab-content .tab-pane table tr td
+				.attribute-name
+					display: flex
+					a
+						text-decoration: none
+						outline: none
+					span:after
+						font-family: FontAwesome
+						color: #000
+						content: "\f059"
+						margin-left: 4px
+			.product-attribute
+				.table tbody > tr > td
+					padding-right: 8px
+					.dropdown-menu
+						border-radius: 0
+						border: none
+						width: 300px
+						font-size: 12px
+						padding: 20px
+						font-weight: 400
+						margin-left: -180px
+			.product-parameters
+				padding-left: 25px
+				padding-right: 25px
+				color: #464545
+				text-transform: none !important
+				.warning-size
+					background-color: rgba( 242, 226, 5, .3)
+					padding: 10px
+					margin-bottom: 20px
+					h3
+						margin-top: 10px
+						font-size: 16px
+				.table > tbody
+					border-top: 1px solid #000
+					> tr
+						&:first-child
+							background-color: rgba(242, 148, 200, .5)
+							> td
+								font-weight: 600
+								text-transform: none
+						> td
+							font-weight: 400
+							border: 1px solid #000
+							padding: 5px
+							&:last-child
+								padding-bottom: 10px
+								line-height: 2
+								text-transform: none
+								span
+									font-weight: 600
+									color: #000
+			.product-description
+				padding-left: 50px
+				padding-right: 0
+				font-size: 12px
+				line-height: 1.8
+			#tabcustom0
+				font-size: 12px
+				.delivery
+					h3
+						font-size: 16px
+						margin: 30px 0
+						text-align: left
+					ul
+						margin-bottom: 30px
+						li
+							margin-bottom: 10px
+					a
+						color: #f20789
+						font-weight: 600
+						text-decoration: underline !important
+						&:hover, &:focus
+							text-decoration: none !important
+			#tabcustom1
+				line-height: 1.8
+				font-size: 12px
+				a
+					color: #f20789
+					font-weight: 600
+					text-decoration: underline !important
+					&:hover, &:focus
+						text-decoration: none !important
+			#tabcustom2
+				font-size: 12px
+				.tab-size
+					padding: 0 120px
+				table
+					text-align: center
+					padding: 0 60px
+					tbody
+						border-top: 1px solid #000
+						> tr
+							&:first-child
+								background-color: rgba(242, 148, 200, .5)
+							> td
+								padding: 15px 0
+								text-transform: none !important
+								border: 1px solid #000
+								span
+									font-weight: 400
+				h3
+					font-size: 16px
+					margin-top: 30px
+				.warning-size
+					font-size: 12px
+					line-height: 1.8
+				.size-bot a
+					.image-bot
+						position: relative
+					.title-img
+						position: absolute
+						width: 100px
+						text-align: center
+						top: 65%
+						left: 75%
+						line-height: 1
+						transform: translate(-63%, -63%)
+						font-size: 16px
+						p
+							color: #000
+						svg
+							fill: rgba(148, 146, 158, 1)
+				ol
+					margin: 0
+					padding: 0
+					li
+						margin-bottom: 20px
+					.button .button-hom-text
+						margin: 10px 0 40px 0
+						a
+							display: block
+							text-transform: lowercase
+							text-decoration: none
+							color: #7f8c8d
+							background: #fefefe
+							padding: 5px 8px 30px
+							border: 1px solid #bdc3c7
+							border-radius: 3px
+							margin: 20px auto
+							margin-bottom: -20px
+							text-align: center
+							display: block
+							width: 220px
+							position: relative
+							background-image: linear-gradient(to top, #f4f1ee, #fff)
+							height: 25px
+							transition: all .1s linear
+							box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5)
+							&:after
+								content: ""
+								background: linear-gradient(to right, #2ecc71 10%, #3498db 10%, #3498db 20%, #8e44ad 20%, #8e44ad 30%, #e67e22 30%, #e67e22 40%, #c0392b 40%, #c0392b 50%, #2ecc71 50%, #2ecc71 60%, #3498db 60%, #3498db 70%, #8e44ad 70%, #8e44ad 80%, #e67e22 80%, #e67e22 90%, #c0392b 90%)
+								background-size: 200% 100%
+								display: inline-block
+								width: 100%
+								height: 4px
+								position: absolute
+								left: 0
+								bottom: 0
+							&:hover
+								background-image: -webkit-linear-gradient(to top, #fff, #f4f1ee)
+								background-image: linear-gradient(to top, #fff, #f4f1ee)
+							&:active
+								background-image: -webkit-linear-gradient(to top, #efedec, #f7f4f4)
+								background-image: linear-gradient(to top, #efedec, #f7f4f4)
+								box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -3px 1px 1px rgba(204,198,197,.5)
+
+			#tab-p-review
+				.input-group-addon
+					border-radius: 0
+					text-transform: lowercase
+					background-color: transparent
+					border: none
+				.input-group-sm
+					.form-control
+						position: relative
+						border-radius: 0
+						box-shadow: none
+						border: none
+						appearance: none
+						color: #464545
+						font-weight: 600
+						&:hover, &:focus
+							text-decoration: underline
+				#p-review
+					text-align: center
+					font-size: 12px
+					p
+						padding-top: 20px
+						font-weight: 400
+						strong
+							font-weight: 600
+					.table-striped
+						text-align: left
+						tbody > tr > td
+							padding: 0 40px
+							blockquote
+								font-size: 12px
+								border-top: 1px solid #ddd
+				#p-review-form
+					text-align: center
+					.button-p-review-product, #button-p-review
+						margin-top: 20px
+						border-radius: 0
+						border: none
+						background-color: #120e10
+						color: #fff
+						padding: 5px 45px
+						text-transform: lowercase
+						font:
+							weight: 400
+							size: 16px
+						transition: background-color .25s ease
+						outline: none
+						&:hover, &:active, &:focus
+							background-color: lighten(#120e10, 10%)
+							text-decoration: none
+					.form-group
+						&:before, &::after
+							display: none
+						div
+							margin-bottom: 20px
+						small
+							text-transform: lowercase
+						.btn-primary
+							border: none
+							border-radius: 0
+							background-color: #f294c8
+							color: #fff
+							padding: 5px 45px
+							text-transform: lowercase
+							font:
+								weight: 400
+								size: 16px
+							transition: background-color .25s ease
+							outline: none
+							&:hover, &:active, &:focus
+								background-color: lighten(#f294c8, 10%)
+								text-decoration: none
+						.rating
+							margin-top: 10px
+							.fa
+								font-size: 1em !important
+						.text-requring
+							text-transform: lowercase
+							font-size: 12px
+							span
+								color: red
+				.p-review-product
+					margin-top: 40px
+					text-align: left
+					.form-horizontal
+						padding: 0 300px
+					#input-good, #input-bad
+						height: 30px
+		.rating
+			margin-top: 5px
+			text-align: left
+			.fa-star + .fa-star-o
+				color: #000 !important
+			.fa-star
+				color: #F20789 !important
+			.fa .fa-stack-2x, .fa .fa-stack
+				font-size: 1em
+			.fa-stack
+				margin: 0
+				width: 1em
+				text-align: left !important
+
+	#art_aqa_product_modal_btn
+		border: none !important
+		background-color: #120e10 !important
+		color: #fff
+		padding: 5px 45px
+		text-transform: lowercase
+		font:
+			weight: 400
+			size: 16px
+		transition: background-color .25s ease
+		outline: none
+		&:hover, &:active, &:focus
+			background-color: lighten(#120e10, 10%)
+
+	.art_aqa_product_info
+		background-color: #f9f9f9
+		.art_aqa_product_question
+			.art_question_header
+				span
+					font-size: 12px
+					color: #464545
+					font-weight: 400
+					font-style: italic
+		.art_question_body
+			font-size: 12px
+		.art_aqa_product_answer .art_question_body
+			padding: 0 16px 3px 16px
+
+	.modal-content
+		h3
+			font-size: 18px
+		h4
+			font-size: 12px
+			text-transform: lowercase
+		#form-art_aqa_product .form-group.required
+			&:before, &::after
+				display: none
+		.pull-right
+			font-size: 12px
+			input[type="checkbox"]
+				position: relative
+				margin: 4px 0 0 10px
+				line-height: normal
+				padding: 0
+				text-align: left
+				font-size: inherit
+				color: inherit
+				appearance: checkbox
+				height: 13px
+				width: 13px
+		#button-art_aqa_product
+			margin-top: 30px
+			text-transform: lowercase
+	.modal-content
+		margin-top: 10%
+
+	/*--------Фото товара---------*/
+	.option-thumbnails
+		padding: 0
+		margin: 0
+	.model-product
+		display: flex
+		justify-content: space-between
+		.btn
+			border-radius: 0
+			padding: 0
+			margin: 0
+			border: none
+			line-height: 0.01
+			outline: none
+			&:hover, &:focus
+				background-color: transparent
+			svg
+				width: 25px
+				height: 15px
+				margin-right: 15px
+		.model-model
+			text-transform: lowercase
+			font-weight: 600
+			opacity: 0.5
+	hr
+		margin-top: 0 !important
+	.btn-group-lg > .btn, .btn-lg
+		border-radius: 0
+
+	.video-product
+		position: absolute
+		width: 100%
+		height: 100%
+		top: 0
+		video
+			width: 540px
+			height: 810px
+	.video-product-hidden
+		display: none
+		position: relative
+	.video-product-visible
+		display: block
+	.button-video
+		position: absolute
+		bottom: 6%
+		left: 10%
+		border: 0
+		span
+			margin-left: 2px
+			font-weight: 600
+			color: #777
+		.bg-button-video
+			position: relative
+			background: #777
+			width: 40px
+			height: 40px
+			border-radius: 10em
+			opacity: 0.5
+			.button-button-video
+				position: absolute
+				left: 54%
+				top: 50%
+				transform: translate(-52%, -50%)
+				background: transparent
+				box-sizing: border-box
+				border-color: transparent transparent transparent #fff
+				transition: 100ms all ease
+				cursor: pointer
+				// play state
+				border-style: solid
+				border-width: 7px 0 7px 10px
+			.paused
+				width: 10px
+				height: 10px
+				left: 51.6%
+				border-style: none
+				border-width: none
+				border-right: 4px solid #fff
+				border-left: 4px solid #fff
+	/*--------Таблица размеров---------*/
+	.product-related, .product-viewed
+		margin-top: 60px
+		h3
+			font-size: 20px
+			margin-bottom: 40px
+		.slider-related, .slider-viewed
+			.slick-list
+				margin-right: -5px
+				margin-left: -5px
+				.slick-track
+					> .slick-slide
+						margin: 0 5px
+					 > li > .product-thumb
+						text-align: center
+						position: relative
+						&:hover .attributes-size
+							display: block
+						&:hover .toclick
+							display: block
+						&:hover button:nth-child(1)
+							display: block
+						&:hover .hover-img
+							background-color: rgba(0, 0, 0, .3)
+						&:hover button:nth-child(1).btn-quick-order
+							display: block
+						.triangle-topleft
+							position: absolute !important
+							z-index: 1000
+							top: 2%
+							left: 0
+							span
+								font-size: 12px
+								font-weight: 600
+								color: red
+								background-color: rgba(255, 255, 255, .5)
+								padding: 5px 10px
+
+						button:nth-child(1).btn-quick-order
+							color: #000 !important
+							display: none
+							position: absolute
+							text-align: center
+							background-color: rgba(255, 255, 255, .5)
+							border: none
+							padding: 5px 30px
+							width: 78%
+							top: 35%
+							left: 48%
+							transform: translate(-50%, -50%)
+							transition: background-color .0.25s
+							&:hover, &:focus
+								background-color: rgba(255, 255, 255, .3)
+							.oneclick
+								position: relative
+							span
+								text-transform: lowercase !important
+								font-weight: 600
+								font-size: 12px
+								margin-top: -5px
+							svg
+								position: absolute
+								width: 18px
+								height: 20px
+								left: -15px
+						.image
+							padding: 0 !important
+							margin: 0 !important
+							width: 100%
+							position: relative
+							.hover-img
+								width: 100%
+								height: 110px
+								position: absolute
+								bottom: 1.5%
+								padding: 0 5px
+						.attributes-size
+							position: absolute
+							display: none
+							bottom: 23%
+							left: 50%
+							transform: translate(-50%, 0)
+							width: 100%
+							.attribute
+								display: inline-block
+								border: 2px solid rgba(255, 255, 255, .5)
+								color: rgba(255, 255, 255, .7)
+								padding: 8px
+								width: 36px
+								height: 36px
+								font-weight: 600
+								&:not(:last-child)
+									margin-right: 5px
+						/*---------Цвета в рекомендуемых продукта---------*/
+						.attributes-color
+							text-align: left
+							position: absolute
+							top: 40%
+							.attribute
+								display: inline-block
+								width: 10px
+								height: 10px
+							#attribute14
+								background-color: #e25c5c
+							#attribute23
+								background-color: #d9b09d
+							#attribute12
+								background-color: #ffffff
+								border: 1px solid #858484
+							#attribute29
+								background-color: #4becf1
+							#attribute22
+								background-color: #9dc2f1
+							#attribute16
+								background-color: #f7fa6a
+							#attribute17
+								background-color: #1d6833
+							#attribute26
+								background-color: #68501d
+							#attribute19
+								background-color: #611f0b
+							#attribute20
+								background-color: #bdfaf0
+							#attribute30
+								background-color: #f0aa40
+							#attribute21
+								background-color: #f8aedf
+							#attribute24
+								background-color: #f8faf0
+								border: 1px solid #858484
+							#attribute18
+								background-color: #c37e93
+							#attribute27
+								background-color: #797677
+							#attribute15
+								background-color: #4430f1
+							#attribute28
+								background-color: #48630b
+							#attribute13
+								background-color: #0a0a0a
+							#attribute25
+								background-color: #3b2a04
+							#attribute89
+								background-color: #8e5c5f
+							#attribute92
+								background-color: #e6baeb
+							#attribute93
+								background-color: #39aafa
+							#attribute94
+								background-color: #54adb3
+							#attribute97
+								background-color: #de3b72
+						.caption
+							position: relative
+							p
+								display: none
+								margin: 0 !important
+								.price
+									margin: 0
+									padding: 0
+								&.price
+									display: block
+									text-align: left
+									font:
+										weight: 600
+										size: 16px
+										family: 'Roboto Condensed', sans-serif
+								.price-tax
+									display: none
+								.price-old
+									font-size: 14px
+									font-weight: 400
+									text-decoration: line-through
+							.rating
+								display: none
+						h4
+							text-align: left
+							margin-top: 0
+							margin-bottom: 20px
+							overflow: hidden
+							max-height: 28px
+							a
+								color: #000
+								display: block
+								height: 110%
+								overflow: hidden
+								width: 98%
+								text-decoration: none
+								outline: none
+								font:
+									weight: 500
+									size: 12px
+						.button-group
+							margin-bottom:
+							> *
+								&:nth-child(3)
+									display: none
+								&:nth-child(1)
+									display: none
+									position: absolute
+									top: 68%
+									left: 50%
+									transform: translate(-50%, 0)
+									text-align: center
+									border: none
+									background-color: #120e10
+									color: #fff
+									padding: 6px 40px
+									text-transform: lowercase
+									font:
+										weight: 400
+										size: 12px
+									transition: background-color .25s ease
+									outline: none
+									&:hover, &:active, &:focus
+										background-color: lighten(#120e10, 10%)
+									.fa
+										display: none
+								&:nth-child(2)
+									position: absolute
+									right: 0
+									top: 3%
+									border: none
+									background-color: transparent
+									.fa
+										position: relative
+										background-color: rgba(255, 255, 255, 0.5)
+										border-radius: 10em
+										height: 30px
+										width: 30px
+										svg
+											position: absolute
+											top: 50%
+											left: 50%
+											transform: translate(-50%, -50%)
+											width: 17px
+			/* Arrows */
+			.slick-prev:before, .slick-next:before
+				font-family: FontAwesome
+				font-size: 14px !important
+			.slick-prev, .slick-next
+				opacity: .5
+			.slick-prev
+				top: 30%
+				left: -53%
+			[dir='rtl'] .slick-prev
+				top: 30%
+				left: -53%
+			.slick-next
+				top: 29%
+				right: -52%
+			[dir='rtl'] .slick-next
+				top: 29%
+				right: -52%
+			.slick-prev:before
+				content: "\f053"
+			[dir='rtl'] .slick-prev:before
+				content: "\f053"
+			.slick-next:before
+				content: "\f054"
+			[dir='rtl'] .slick-next:before
+	  		content: "\f054"
+			.slick-prev,
+			.slick-next
+				font-size: 0
+				line-height: 0
+				position: absolute
+				display: block
+				width: 100%
+				height: 35px
+				margin-top:
+				padding: 0
+				cursor: pointer
+				color: transparent
+				border: none
+				outline: none
+				background: transparent
+
+			.slick-prev:hover,
+			.slick-prev:focus,
+			.slick-next:hover,
+			.slick-next:focus
+				color:transparent
+				outline: none
+				background: transparent
+
+			.slick-prev:hover:before,
+			.slick-next:hover:before,
+			.slick-prev:active:before,
+			.slick-next:active:before
+				opacity: .7
+
+			.slick-prev.slick-disabled:before,
+			.slick-next.slick-disabled:before
+				opacity: .25
+
+
+			.slick-prev:before,
+			.slick-next:before
+				font-family: FontAwesome
+				font-size: 20px
+				font-stretch: ultra-expanded !important
+				line-height: 1
+				opacity: .5
+				color: #000
+				-webkit-font-smoothing: antialiased
+				-moz-osx-font-smoothing: grayscale
+
+	.product-viewed
+		margin-top: 0
+		.slider-viewed .slick-list .slick-track > .slick-slide
+			margin: 0
+			.button-group
+				> :nth-child(1)
+					top: 66%
+				> :nth-child(2)
+					right: 8px
+
+	/*---------Вертикальный слайдер---------*/
+	#content
+		.slider-img-nav
+			padding: 0
+		.slider-img
+			padding: 0
+			padding-left: 20px
+			padding-bottom:
+			margin: 0
+			position: relative
+.slider-img-nav, .single-slide
+	.slider-nav
+		position: relative
+		margin-top: 40px !important
+	.slick-prev
+		top: -40px
+		left: 0
+	[dir='rtl'] .slick-prev
+		top: -40px
+		left: 0
+	.slick-prev:before
+		content: "\f077"
+	[dir='rtl'] .slick-prev:before
+		content: "\f077"
+	.slick-next:before
+		content: "\f078"
+	[dir='rtl'] .slick-next:before
+	  content: "\f078"
+.draggable
+	min-height: 500px !important
+.slider-for, .single-slide
+	.slick-prev,
+	.slick-next
+		z-index: 1000
+		width: 30px
+		height: 30px
+		opacity: .4
+	.slick-prev
+		top: 45%
+		left: 0
+	[dir='rtl'] .slick-prev
+		top: 45%
+		left: 0
+	.slick-next
+		bottom: 51%
+		right: 5px
+	[dir='rtl'] .slick-next
+		bottom: 51%
+		right: 5px
+	.slick-prev:before
+		content: "\f053"
+	[dir='rtl'] .slick-prev:before
+		content: "\f053"
+	.slick-next:before
+		content: "\f054"
+	[dir='rtl'] .slick-next:before
+	  content: "\f054"
+
+/* Arrows */
+.slick-prev:before, .slick-next:before
+	font-family: FontAwesome
+
+.slick-prev,
+.slick-next
+	font-size: 0
+	line-height: 0
+	position: absolute
+	display: block
+	width: 100%
+	height: 35px
+	margin-top:
+	padding: 0
+	cursor: pointer
+	color: transparent
+	border: none
+	outline: none
+	background: transparent
+
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus
+	color:transparent
+	outline: none
+	background: transparent
+
+.slick-prev:hover:before,
+.slick-next:hover:before,
+.slick-prev:active:before,
+.slick-next:active:before
+  opacity: .7
+
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before
+  opacity: .25
+
+
+.slick-prev:before,
+.slick-next:before
+	font-family: FontAwesome
+	font-size: 20px
+	font-stretch: ultra-expanded !important
+	line-height: 1
+	opacity: .5
+	color: #000
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+
+/*---------Zoom---------*/
+.easyzoom--overlay
+	img
+		max-width: none !important
+/*----- Личный кабинет------ */
+#account-login, #account-register, #account-forgotten, #account-wishlist, #account-account, #account-edit, #account-password, #account-address, #account-order, #account-download, #account-recurring, #account-reward, #account-return, #account-transaction, #account-newsletter, #common-success
+	#content
+		h2, h1
+			text-transform: uppercase
+			font:
+				family: 'Roboto Condensed', sans-serif
+				weight: normal
+				size: 28px
+		.well
+			border-radius: 0
+			box-shadow: none
+			border: none
+
+			.form-group
+				.control-label
+					text-transform: lowercase
+				.form-control
+					text-transform: lowercase
+				a
+					color:#F20789
+					display: block
+					margin-top: 5px
+					text-decoration: underline
+					text-transform: lowercase
+					&:hover, &::after
+						text-decoration: none
+			.btn-primary
+				border: none
+				background-color: #120e10
+				border-radius: 0
+				color: #fff
+				padding: 8px 45px
+				text-transform: lowercase
+				font:
+					weight: 400
+					size: 16px
+				transition: background-color .25s ease
+				outline: none
+				&:hover, &:active, &:focus
+					background-color: lighten(#120e10, 10%)
+	.list-group-item:first-child, .list-group-item:last-child
+		border-radius: 0
+	.list-group-item
+		text-transform: lowercase
+	.form-group.required::after, .form-group.required::before
+		display: none
+#account-register, #account-forgotten, #account-wishlist, #account-account, #account-edit, #account-password, #account-address, #account-order, #account-download, #account-recurring, #account-reward, #account-return, #account-transaction, #account-newsletter, #common-success
+	p
+		font-size: 14px
+		a
+			color: #F20789
+			text-decoration: underline
+			&:hover, &:focus
+				text-decoration: none
+	legend
+		text-transform: uppercase
+		font-size: 18px
+	input
+		margin-bottom: 20px
+		box-shadow: none
+		.placeholder
+			display: none
+	.buttons
+		a
+			color: #F20789
+			text-decoration: underline
+			&:hover, &:focus
+				text-decoration: none
+		.btn-primary, .btn-default
+			border: none
+			text-decoration: none
+			background-color: #120e10
+			border-radius: 0
+			color: #fff
+			padding: 8px 45px
+			text-transform: lowercase
+			font:
+				weight: 400
+				size: 16px
+			transition: background-color .25s ease
+			outline: none
+			&:hover, &:active, &:focus
+				background-color: lighten(#120e10, 10%)
+		.btn-default
+			background-color: #f294c8
+			&:hover, &:active, &:focus
+				background-color: lighten(#f294c8, 5%)
+#account-wishlist
+	.table-responsive
+		.table-bordered
+			font-size: 12px
+			a
+				color: #000000
+				text-decoration: underline
+				&:hover, &:focus
+					text-decoration: none
+			.btn-primary, .btn-danger
+				border: none
+				text-decoration: none
+				background-color: #120e10
+				border-radius: 0
+				color: #fff
+				padding: 5px 11.5px 0 11.5px
+				text-transform: lowercase
+				font:
+					weight: 400
+					size: 16px
+				transition: background-color .25s ease
+				outline: none
+				svg
+					fill: #fff
+					width: 20px
+				&:hover, &:active, &:focus
+					background-color: lighten(#120e10, 10%)
+			.btn-danger
+				background-color: #f294c8
+				padding: 9px 15px
+				&:hover, &:active, &:focus
+					background-color: lighten(#f294c8, 5%)
+#account-account
+	.list-unstyled li a
+		color: #000
+		&:hover, &:focus
+			text-decoration: underline
+
+/*----- Личный кабинет------ */
+.category-head
+	.main-underline
+		text-transform: uppercase
+		font-size: 25px
+#quickcheckoutconfirm
+	#login-box #checkout .quickcheckout-heading, #payment-address .quickcheckout-heading, #payment-method .quickcheckout-heading
+		font-size: 14px !important
+		text-transform: lowercase
+	input[type="checkbox"]
+		position: relative
+		margin: 4px 0 0
+		line-height: normal
+		padding: 0
+		text-align: left
+		font-size: inherit
+		color: inherit
+		appearance: checkbox
+		height: 13px
+	a .fa-question-circle::before
+		color: #000	!important
+	.quickcheckout-content
+		label
+			text-transform: lowercase
+	.btn-primary
+		border: none
+		text-decoration: none
+		background-color: #120e10
+		border-radius: 0
+		color: #fff
+		text-transform: lowercase
+		font:
+			weight: 400
+			size: 15.5px
+		transition: background-color .25s ease
+		outline: none
+		&:hover, &:active, &:focus
+			background-color: lighten(#120e10, 10%)
+	#payment-method
+		.quickcheckout-content
+			p, .table
+				display: none
+			strong
+				text-transform: lowercase
+				font-weight: 400
+		.quickcheckout-heading
+			display: none
+	#cart1
+		.quickcheckout-content .quickcheckout-cart
+			thead > tr > td
+				text-transform: lowercase
+			td.image img
+				width: 80px
+			td.name a
+				color: #000000
+				font-size: 12px
+				&:hover, &:focus
+					text-decoration: underline
+			td.quantity
+				.btn-primary
+					padding: 0 10px
+					background-color: transparent
+					color: #000000
+					border: 1px solid #ddd
+				.btn-danger
+					background: #f294c8
+					border: #f294c8
+					border-radius: 0
+					.glyph-icon.icon-cancel:before
+						font-family: FontAwesome
+						content: "\f00d"
+	#totals-wrap
+		.total-wrap:not(:nth-child(1))
+			display: none
+	#terms
+		label a
+			color: #F20789
+			&:hover, &:focus
+				text-decoration: underline
+
+/*-----Блог------ */
+.blog-blog
+	h1
+		text-align: center
+	h1
+		font:
+			family: 'Roboto Condensed', sans-serif
+			weight: 400
+			size: 1.5em
+		text-indent: -9999px
+		letter-spacing: 1.3px
+		text-transform: uppercase
+		text-align: center
+	.blog-module.blog-category
+		position: relative
+		height: 40px
+		border-bottom: 1px solid #f0f1f1
+		h3
+			position: absolute
+			transform: translate(0, -75%)
+			text-align: left
+			text-transform: lowercase
+			font-weight: 200
+			font-size: 24px
+			color: #464545
+			margin: 0
+			padding: 0
+			top: 20px
+			border-bottom: 1px dashed #464545
+		.active
+			a
+				text-decoration: underline
+		.list-unstyled
+			position: absolute
+			top: 0
+			left: 5%
+			margin: 0 auto
+			border-bottom: none
+			li:first-child
+				margin-left: 40px
+			li
+				display: inline-block
+				margin-right: 40px
+				border-bottom: none
+				a
+					color: #000000
+					font-weight: 600
+					font-size: 16px
+					text-transform: lowercase
+	.blog-item, .blog_item
+		.summary
+			letter-spacing: 1.2px
+			line-height: 1.7
+			h2
+				text-align-last: left
+				margin-top: 15px
+				font:
+					size: 1.3em
+					weight: 600
+				text-transform: none
+				a
+					color: #000
+			p
+				margin-top: 15px
+			a
+				top: 15px
+				color: #000000
+				font:
+					weight: 600
+					size: 1.1em
+	.blog-item:first-child
+		width: 100%
+		margin-bottom: 10%
+		.summary
+			.image
+				width: 60%
+				float: left
+				margin-right: 5%
+			h2
+				margin-top: 5%
+			p
+				padding-top:
+				height: auto !important
+	.blog_item
+		width: 50%
+		.summary p .fa
+			color: #000
+	.blog_post
+		h1
+			font-size: 1.5em
+			text-indent: 0 !important
+		.main_thumb
+			text-align: center
+.blog-blog.blog-category-mi, .blog-blog.blog-blog-mi
+	.breadcrumb
+		margin-bottom: 40px
+/*-----Кнопки поделиться------ */
+.blog_post
+	.main_description
+		p
+			letter-spacing: 1.2px
+			line-height: 1.7
+			font-size: 1.1em
+	.share
+		border-top: 1px solid #f0f1f1
+		.fa
+			padding: 0
+			margin: 0
+		a
+			margin-top: 20px
+		.fa-navicon
+			background: transparent !important
+			color: #000 !important
+	h3
+		text-align: left
+		font-size: 1.5em
+		margin: 60px 0 18px !important
+	.form-group.required::after
+		display: none
+/*-----Страница 404------ */
+#error-not-found
+	.swiper-slide img
+		position: relative
+	.error-not-found-title
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		h1
+			font-size: 30px
+			margin-bottom: 50px
+			font-weight: 600
+		span
+			color: #fff
+		h2
+			color: #a3362f
+			margin-bottom: 50px
+			font:
+				family: 'Bebas Neue', sans-serif
+				weight: 800
+				size: 150px
+		p
+			font-weight: 600
+			font-size: 20px
 
 
 @import 'blocks/_header'
@@ -40,5 +3238,6 @@ html
 @import 'blocks/_studentslideshow'
 @import 'blocks/_newstoko'
 @import 'blocks/_title'
+@import 'blocks/_advantages'
 
 @import 'blocks/_media'

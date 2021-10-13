@@ -38,55 +38,56 @@ $(window).scroll(function() {
     }
 });
 
+
+$('#slideshow0').swiper({
+    mode: 'horizontal',
+    effect: 'fade',
+    autoplay: 10000,
+    autoplayDisableOnInteraction: true,
+    loop: true
+});
+
+/*--------- слайдер student ---*/
+$('#slideshow1').swiper({
+    mode: 'horizontal',
+    autoplay: 5000,
+    autoplayDisableOnInteraction: true,
+    loop: true
+});
+
+/*--------- витрина на главной ---*/
+
+$('.swiper-container1').swiper({
+    mode: 'horizontal',
+    autoplay: 30000,
+    centeredSlides: true,
+    spaceBetween: 10,
+    loop: true,
+    //pagination: '.carousel{{ module }}',
+    pagination: false,
+    paginationClickable: false,
+    prevButton: '.swiper-button-prev',
+    nextButton: '.swiper-button-next',
+
+    // Default parameters
+    slidesPerView: 5,
+
+    // Responsive breakpoints
+    breakpoints: {
+        // when window width is <= 1200px
+        1200: {
+            slidesPerView: 3
+        },
+        // when window width is <= 575px
+        575: {
+            slidesPerView: 1
+        }
+    }
+
+});
+
 $(function() {
 
-
-    $('#slideshow0').swiper({
-        mode: 'horizontal',
-        effect: 'fade',
-        autoplay: 10000,
-        autoplayDisableOnInteraction: true,
-        loop: true
-    });
-
-    /*--------- слайдер student ---*/
-    $('#slideshow1').swiper({
-        mode: 'horizontal',
-        autoplay: 5000,
-        autoplayDisableOnInteraction: true,
-        loop: true
-    });
-
-    /*--------- витрина на главной ---*/
-
-    $('.swiper-container1').swiper({
-        mode: 'horizontal',
-        autoplay: 30000,
-        centeredSlides: true,
-        spaceBetween: 10,
-        loop: true,
-        //pagination: '.carousel{{ module }}',
-        pagination: false,
-        paginationClickable: false,
-        prevButton: '.swiper-button-prev',
-        nextButton: '.swiper-button-next',
-
-        // Default parameters
-        slidesPerView: 5,
-
-        // Responsive breakpoints
-        breakpoints: {
-            // when window width is <= 1200px
-            1200: {
-                slidesPerView: 3
-            },
-            // when window width is <= 575px
-            575: {
-                slidesPerView: 1
-            }
-        }
-
-    });
 
     $('#content .category-content-thumb .product-layout:nth-child(8)').after($('#product-category .banner-pro'));
 

@@ -169,9 +169,6 @@ $(function() {
         $('.sale-popup, .news-popup').fadeIn();
     });
 
-    $('.clos-sort, .btn-menu-menu, .btn-contact-menu').click(function() {
-        $(this).toggleClass('clos-sort-plus');
-    });
 
     //4 фото в категориях
     $('.category-content-thumb > .product-layout > .product-thumb').each(function(e) {

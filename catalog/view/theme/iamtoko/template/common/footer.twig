@@ -2,13 +2,13 @@
     <div class="footer__socialwrapp">
         <div>
             <div class="footer__social">
-                <a href="{{ instagram }}" class="footer__social__item" data-hover="hover-on-link" rel="nofollow" target="_blank">
-                    <svg class="icon icon-instagram" viewBox="0 0 30 30" width="30" height="30">
+                <a href="{{ instagram }}" class="footer__item" data-hover="hover-on-link" rel="nofollow" target="_blank">
+                    <svg class="icon icon-instagram footer__svg" viewBox="0 0 25 23" width="25" height="25">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="image\sprite.svg#icon-instagram"></use>
           </svg>
                 </a>
-                <a href="{{ facebook }}" class="footer__social__item" data-hover="hover-on-link" rel="nofollow" target="_blank">
-                    <svg class="icon icon-faseboock" viewBox="0 0 30 30" width="30" height="30">
+                <a href="{{ facebook }}" class="footer__item" data-hover="hover-on-link" rel="nofollow" target="_blank">
+                    <svg class="icon icon-faseboock footer__svg" viewBox="0 0 25 25" width="25" height="25">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="image\sprite.svg#icon-faseboock"></use>
           </svg>
                 </a>
@@ -22,13 +22,13 @@
             </div>
         </div>
     </div>
-    <div class="footer__linkswrap">
+    <div class="footer__linkswrap container">
         <a href="index.php?route=product/category&path=59" class="footer__links">{{ text_all_product }}</a>
         <a href="{{ new }}" class="footer__links">{{ text_new }}</a>
         <a href="{{ sale }}" class="footer__links">{{ text_sale }}</a>
         <a href="{{ blog }}" class="footer__links">{{ text_blog }}</a>
     </div>
-    <div class="footer__wrapper">
+    <div class="footer__wrapper container">
         {% if informations %}
         <div>
             <span class="footer__title">{{ text_information }}</span>
@@ -56,16 +56,16 @@
                 <li><a href="tel:{{ telephone_href }}" title="Позвонить" data-hover="hover-on-link" rel="nofollow" target="_blank">{{ telephone }}</a></li>
                 <li><a href="tel:{{ telephone_href2 }}" title="Позвонить" data-hover="hover-on-link" rel="nofollow" target="_blank">{{ telephone2 }}</a></li>
                 <li><a href="mailto:{{ email }}" title="email" data-hover="hover-on-link" rel="nofollow" target="_blank">{{ email }}</a></li>
-                <li class="viber-footer">
+                <li class="footer__viber">
                     <a href="viber://chat?number={{ viber }}" data-hover="hover-on-link" title="viber" rel="nofollow" target="_blank">
-                        <svg class="icon icon-viber" viewBox="0 0 30 30" width="30" height="30">
+                        <svg class="icon footer__icon" viewBox="0 0 30 30" width="30" height="30">
               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="image\sprite.svg#icon-viber"></use>
             </svg>
                     </a>
                 </li>
-                <li class="telegram-footer">
+                <li class="footer__telegram">
                     <a href="tg://resolve?domain={{ telegram }}" data-hover="hover-on-link" rel="nofollow" title="telegram" target="_blank">
-                        <svg class="icon icon-telegram" viewBox="0 0 30 30" width="30" height="30">
+                        <svg class="icon footer__icon" viewBox="0 0 30 30" width="30" height="30">
               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="image\sprite.svg#icon-telegram"></use>
             </svg>
                     </a>
@@ -77,15 +77,17 @@
 
     <!-- Кнопка перезвоним -->
 
-    <a href="#modalCallbackFooterFooter" class="btn btn-link footer__btn_coll hidden-xs" id="button_callbackfooter" data-toggle="modal">{{ text_button_call_side }}<i class="fa fa-phone"></i></a>
-    <a href="#modalCallbackFooterFooter" class="btn btn-link footer__btn_coll hidden-md hidden-sm hidden-lg" id="button_callbackfooter" data-toggle="modal"><i class="fa fa-phone"></i></a>
+    <a href="#modalCallbackFooterFooter" class="btn btn-link button-coll-side hidden-xs" id="button_callbackfooter" data-toggle="modal">{{ text_button_call_side }}<i class="fa fa-phone"></i></a>
+    <a href="#modalCallbackFooterFooter" class="btn btn-link button-coll-side hidden-md hidden-sm hidden-lg" id="button_callbackfooter" data-toggle="modal"><i class="fa fa-phone"></i></a>
 
     <!-- Кнопка salepopup -->
 
-    <a href="#salepopup" class="footer__btn_coll footer__btn_sale button-sale-popup">
-        <svg class="icon icon-logo" viewBox="0 0 30 30" width="30" height="30">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="image\sprite.svg#icon-present"></use>
-        </svg>
+    <a href="#salepopup" class="button-coll-side button-sale-popup">
+        <i class="fa">
+          <svg class="icon icon-logo" viewBox="0 0 30 30" width="30" height="30">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="image\sprite.svg#icon-present"></use>
+          </svg>
+        </i>
     </a>
 
     <div class="relative">

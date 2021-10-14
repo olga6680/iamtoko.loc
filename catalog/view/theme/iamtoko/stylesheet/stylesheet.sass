@@ -844,54 +844,7 @@ h1
 		.button-hom-text
 			a
 				width: initial
-/*---------Кнопка перезвоним---------*/
-#form-callbackfooter-footer
-	height: 100%
-	.col-sm-12
-		margin-bottom: 20px
-	.col-sm-12:first-child
-		margin-top: 15px
-.button-coll-side
-	position: fixed
-	display: none
-	transform: rotate(90deg)
-	transform-origin: right top 0
-	right: 0
-	padding: 0
-	padding-left: 20px
-	bottom: 35%
-	z-index: 1000
-	color: #ffffff
-	background-color: #d01345
-	font-size: 14px
-	letter-spacing: 1px
-	font-weight: 500
-	text-transform: lowercase
-	height: auto
-	outline: none
-	&:hover
-		background: darken(#d01345, 5%)
-		color: #fff
-		.fa
-			-webkit-animation: wiggle .05s alternate ease infinite
-			animation: wiggle .05s alternate ease infinite
-			background: transparent
-	&:active,
-	&:focus
-		background: darken(#d01345, 10%)
-		color: #fff
-	.fa
-		background: darken(#d01345, 5%)
-		font-size: 20px
-		padding: 6px	9px
-		margin-left: 15px
-		transform: rotateY(-180deg)
 
-@-webkit-keyframes wiggle
-	from
-		-webkit-transform: rotate(0deg)
-	to
-		-webkit-transform: rotate(-30deg)
 /*---------Кнопка подарок Скидка---------*/
 .sale-popup, .news-popup
 	max-width: 320px
@@ -960,123 +913,6 @@ h1
 			&:hover, &:focus
 				background-color: rgba(242, 148, 200, .8)
 				border-color: rgba(242, 148, 200, 1)
-.button-sale-popup
-	bottom: 25%
-	transform: rotate(0)
-	padding: 0
-	height: 44px
-	right: 0
-	.fa
-		margin: 0
-		padding: 6px 6px 5px 6px
-		svg
-			fill: #ffffff
-			width: 22px
-/*---------Footer---------*/
-.main-footer
-	margin-top: 50px
-	margin-left: 10px
-	margin-right: 10px
-	.section1-footer
-		background-color: #120e10
-		height:
-		.social-footer
-			list-style: none
-			display: inline-block
-			margin-left: 30px
-			li
-				float: left
-				margin: 5px 40px -35px 0
-				a
-					outline: none
-					text-decoration: none
-				svg
-					fill: #fff
-					width: 20px
-					&:hover, &:focus
-						fill: #F20789
-	.registration-footer
-		color: #fff
-		display: inline-block
-		margin-left: 28%
-		margin-top: 1%
-		letter-spacing: 1.8px
-		font:
-			family: 'Roboto Condensed', sans-serif
-			size: 16px
-		.login-name
-			text-transform: uppercase
-		p
-			float: left
-		a
-			text-decoration: none
-			outline: none
-			color: rgba(255, 102, 196, 1)
-			transition: color .25s
-			margin-left: 20px
-			&:hover, &:focus
-				color: rgba(255, 102, 196, .6)
-	.section2-footer
-		background-color: #dbdee0
-		position: relative
-		.menu-footer
-			list-style: none
-			display: inline-block
-			margin: 20px 0 -5px 30px
-			li
-				float: left
-				margin-right: 100px
-				a
-					text-decoration: none
-					outline: none
-					color: #120e10
-					font:
-						weight: 600
-						size: 16px
-					&:hover, &:focus
-						color: #F20789
-	.information-footer
-		margin-left: 55px
-		span
-			font:
-				family: 'Roboto Condensed', sans-serif
-				weight: 800
-				size: 14px
-			letter-spacing: 1px
-			text-transform: uppercase
-		a
-			text-decoration: none
-			outline: none
-			color: #120e10
-			line-height: 1.7
-			&:hover, &:focus
-				color: #F20789
-		.footer-phone
-			font-weight: 600
-	.viber-footer, .telegram-footer
-		margin-top: 15px
-		margin-right: 30px
-		float: left
-	.foot-log
-		position: absolute
-		bottom: 0
-		left: 85%
-	.logo-footer
-		a
-			font:
-				family: 'Montserrat Alternates', sans-serif
-				weight: 600
-				size: 30px
-			color: #000
-			outline: none
-			text-decoration: none
-			&:hover,
-			&:focus
-				color: #F20789
-		svg
-			width: 40px
-			height: auto
-	.reserv-footer
 
 
 /*---------Форма регистрации попап---------*/
@@ -3239,5 +3075,6 @@ a[aria-expanded="true"]:before
 @import 'blocks/_newstoko'
 @import 'blocks/_title'
 @import 'blocks/_advantages'
+@import 'blocks/_footer'
 
 @import 'blocks/_media'

@@ -102,14 +102,15 @@
 </footer>
 
 <!--Скидка попап-->
-<div class="hidden popup">
-    <div id="salepopup" class="sale-popup popup__sale">
-        <img class="popup__sale_img" src="image/catalog/banners/skidka-zaregistrirovannym-pokupatelyam-iamtoko.png" alt="Скидка 10% зарегистрированным покупателям">
-        <div class="left-salepopup popup__sale_left">{{ text_left_sale }}</div>
-        <div class="bottom-salepopup popup__sale_bottom">{{ text_bottom_sale }}</div>
-        <div class="button-salepopup popup__sale_btn banner-button"><a href="javascript:void(0);" class="login-popup" data-toggle="modal" data-target="#loginModel">{{ text_footer_registration }}</a></div>
-    </div>
+<div class="hidden">
+    <section id="salepopup" class="sale-popup popupsale">
+        <img src="image/catalog/banners/skidka-zaregistrirovannym-pokupatelyam-iamtoko.webp" alt="Скидка 10% зарегистрированным покупателям">
+        <div class="left-salepopup popupsale__left">{{ text_left_sale }}</div>
+        <div class="bottom-salepopup popupsale__bottom">{{ text_bottom_sale }}</div>
+        <div class="button-salepopup banner-button popupsale__button"><a href="javascript:void(0);" class="login-popup" data-toggle="modal" data-target="#loginModel">{{ text_footer_registration }}</a></div>
+    </section>
 </div>
+
 
 {% for script in scripts %}
 <script src="{{ script }}"></script>
@@ -120,6 +121,14 @@ Please donate via PayPal to donate@opencart.com
 //-->
 
 <script src="catalog/view/theme/iamtoko/js/theme.js"></script>
+<script src="catalog/view/theme/iamtoko/libs/equalheights/equalheights.js"></script>
+<script src="catalog/view/theme/iamtoko/js/jquery.placeholder.min.js"></script>
+<script src="catalog/view/theme/iamtoko/js/waypoints.min.js"></script>
+<script src="catalog/view/theme/iamtoko/js/easyzoom.js"></script>
+<script src="catalog/view/javascript/slick/slick.min.js"></script>
+
+<script src="catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js"></script>
+
 
 </body>
 

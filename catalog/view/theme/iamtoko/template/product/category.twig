@@ -1,11 +1,6 @@
-{{ header }}
-<div id="product-category" class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h3 class="ban-top-cat hidden-xs" align="center">{{ text_letter_category }}&nbsp;&nbsp;<a href="#newspopup" class="button-news-popup">{{ text_button_letter }}</a></h3>
-      <h3 class="ban-top-cat hidden-lg hidden-md hidden-sm" align="center">{{ text_letter_category_mobile }}&nbsp;&nbsp;<a href="#newspopup" class="button-news-popup">{{ text_button_letter }}</a></h3>
-    </div>
-  </div>
+{{ header }}{{ content_top }}
+<div id="product-category" class="container-fluid">
+
   <div class="container">
     <ul class="breadcrumb">
       {% for breadcrumb in breadcrumbs %}
@@ -13,36 +8,30 @@
       {% endfor %}
     </ul>
   </div>
-  {{ content_top }}
 
+  <h1 class="title">{{ heading_title }}</h1>
 
-
-  <div class="col-md-12"><h1>{{ heading_title }}</h1></div>
-
-      {% if categories %}
-      {% if categories|length <= 5 %}
-      <div class="row">
-        <div class="col-md-12 category-in-category">
-          <ul>
+    {% if categories %}
+     {% if categories|length<=5 %}
+     <section class="category-in-category categoryin">
+        <div class="categoryin__wrapp">
             {% for category in categories %}
-            <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+            <div class="categoryin__item"><a href="{{ category.href }}" class="categoryin__link">{{ category.name }}</a></div>
             {% endfor %}
-          </ul>
         </div>
-      </div>
-      {% else %}
-      <div class="row">{% for category in categories|batch((categories|length / 4)|round(1, 'ceil')) %}
-        <div class="col-sm-3">
-          <ul>
-            {% for child in category %}
-            <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+        </section>
+
+        {% else %}
+        <section class="categoryin">
+            {% for category in categories|batch((categories|length / 4)|round(1, 'ceil')) %}
+            <div class="categoryin__wrap">
+                {% for child in category %}
+                <div class="categoryin__item"><a href="{{ child.href }}" class="categoryin__link">{{ child.name }}</a></div>
+                {% endfor %}
+            </div>
             {% endfor %}
-          </ul>
-        </div>
-        {% endfor %}</div>
-      <br />
-      {% endif %}
-      {% endif %}
+        </section>
+        {% endif %} {% endif %}
 
   <div class="row">{{ column_left }}
     {% if column_left and column_right %}
@@ -205,3 +194,7 @@
     </div>
   </div>
 </div>
+
+<script><!--
+$('.product-thumb h3').css('height', '').equalHeights();
+--><script>

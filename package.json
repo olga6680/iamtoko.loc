@@ -19,7 +19,7 @@
         "jquery": "^3.6.0",
         "node-bourbon": "^4.2.8",
         "node-sass": "^6.0.1",
-        "sass": "^1.42.1"
+        "sass": "^1.43.2"
     },
     "scripts": {
         "preinstall": "npx npm-force-resolutions",

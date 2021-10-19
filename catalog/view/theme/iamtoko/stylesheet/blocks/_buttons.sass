@@ -139,19 +139,17 @@ a[aria-expanded="true"]:before
 /*--------Кнопка купить в 1 клик---------*/
 .product-layout button:nth-child(1).btn-quick-order
 	color: $text-color
-	position: absolute
 	text-align: center
 	background-color: rgba(255, 255, 255, .3)
 	width: 78%
 	border-radius: 200px
 	border-color: $light-grey
-	left: 48%
-	top: 70%
-	transform: translate(-50%, 0)
 	transition: background-color .0.25s
 	&:hover, &:focus
 		background-color: rgba(255, 255, 255, .1)
 		text-decoration: underline
+		span
+			color: $dark-grey
 	.oneclick
 		position: relative
 	span
@@ -159,11 +157,13 @@ a[aria-expanded="true"]:before
 		font-weight: 600
 		font-size: 14px
 		margin-top: -5px
+		margin-left: 20px
+		color: $grey-color
 	svg
 		position: absolute
 		width: 20px
 		height: 22px
-		left: 40px
+		left: 12px
 		top: -3px
 .latest-product, .sale-product
 	.product-layout button:nth-child(1).btn-quick-order svg

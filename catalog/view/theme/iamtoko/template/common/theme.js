@@ -178,7 +178,7 @@ $(function() {
         e += 1;
 
         $(this).parent().attr({
-            'class': 'product-layout product-grid col-lg-3 col-md-4 col-sm-6 col-xs-6 data-bal="element-bal"'
+            'class': 'product-layout product-grid col-lg-3 col-md-4 col-sm-6 col-xs-12 data-bal="element-bal"'
 
         });
     });

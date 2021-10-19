@@ -5,6 +5,14 @@
   .latesthom
     .container
       padding-left: 25px
+  .product-layout button:nth-child(1).btn-quick-order
+    padding: 3px 10px
+    svg
+      width: 16px
+      left: 11px
+    span
+      margin-left: 20px
+      font-size: 12px
 
 @media (max-width: 1200px)
   .header
@@ -17,8 +25,16 @@
   .hamburger
     &_active
       left: 5px
+  .product-layout button:nth-child(1).btn-quick-order
+    span
+      font-size: 10px
+  #product-category #column-left
+    width: 17%
 
 @media (max-width: 991px)
+  .row
+    margin-right: 15px
+    margin-left: 15px
   .hamburger
     &_active
       left: 5px
@@ -69,6 +85,10 @@
     margin-top: 10px
   .newstoko
     margin-top: 50px
+  #product-category #column-left
+    width: 22%
+    margin-left: 20px
+    margin-right: -15px
 
 @media (max-width: 767px)
   .html_active
@@ -146,10 +166,15 @@
       padding: 2px 7px 0 6px
       svg
         width: 20px
+  .bantopcat
+    &__text
+      font-size: 14px
+    &__button
+      font-size: 12px
 
 @media (max-width: 575px)
   .fixed
-    top: -87px
+    margin-top: -87px
   .title
     font-size: 23px
   .subtitle
@@ -180,8 +205,6 @@
     &__phone .dropdown-menu,
     &__accaunt .dropdown-menu
       top: 38px
-  #slideshow0
-    margin-top: -40px !important
   .slideshow
     &__descr
       &_3
@@ -236,3 +259,11 @@
       margin-right: 15px
     &__register
       width: 203px
+  .bantopcat__text
+    font-size: 12px
+  .categoryin
+    &__wrapp
+      display: block
+      text-align: center
+    &__item
+      margin-bottom: 20px

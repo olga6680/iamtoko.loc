@@ -83,22 +83,27 @@
 		border-radius: 0
 		padding: 5px
 	button
-		background-color: $main-color
-		border-color: $main-color
+		background-color: transparent
+		border: none
 		border-radius: 0
+		color: $purple-color
 .ocfilter-mobile-handle
 	transform: rotate(-90deg)
+	top: 428px !important
+	left: 210px !important
 	.btn
-		background-color: rgba(0, 0, 0, 1)
-		border-color: rgba(0, 0, 0, 1)
-		transition: background-color, border-color .25s ease
+		background-color: $salat-color
+		border-color: $salat-color
 		text-transform: lowercase
 		font-weight: 600
 		letter-spacing: 1.5px
 		padding-top: 2px
+		border-radius: 0
 		&:focus, &:hover
-			background-color: rgba(0, 0, 0, 7)
-			border-color: rgba(0, 0, 0, 7)
+			text-decoration: underline
+.btn-primary.active:focus, .btn-primary.active:hover,
+	background: $main-color
+	background-color: $main-color
 .ocfilter-option-popover
 	border-radius: 0
 	.popover-content

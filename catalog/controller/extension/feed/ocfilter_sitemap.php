@@ -1,13 +1,13 @@
 <?php
 class ControllerExtensionFeedOcfilterSitemap extends Controller {
 	public function index() {
-		if ($this->config->get('ocfilter_sitemap_status')) {
+		//if ($this->config->get('ocfilter_sitemap_status')) {
 			$output  = '<?xml version="1.0" encoding="UTF-8"?>';
 			$output .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">';
 
-      $this->load->model('catalog/ocfilter');
+      $this->load->model('extension/module/ocfilter');
 
-			$ocfilter_pages = $this->model_catalog_ocfilter->getPages();
+			$ocfilter_pages = $this->model_extension_module_ocfilter->getPages();
 
 			foreach ($ocfilter_pages as $page) {
         $link = rtrim($this->url->link('product/category', 'path=' . $page['category_id']), '/');
@@ -33,6 +33,6 @@ class ControllerExtensionFeedOcfilterSitemap extends Controller {
 
 			$this->response->addHeader('Content-Type: application/xml');
 			$this->response->setOutput($output);
-		}
+		//}
 	}
 }

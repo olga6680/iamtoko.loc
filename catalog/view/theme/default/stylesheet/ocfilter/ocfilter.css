@@ -202,7 +202,7 @@ button[data-target="#ocfilter-hidden-options"][aria-expanded="true"] .fa:before 
 	border-top: none;
 }
 
-/*=Mobile 
+/*=Mobile */
 .ocf-offcanvas{
   position: fixed;
   top: 0;
@@ -233,7 +233,7 @@ overflow-x: hidden;
     bottom: 0;
     left: 0;
     right: 0;
-}*/
+}
 .ocf-offcanvas .panel{}
 .ocf-offcanvas{}
 .ocf-offcanvas{}

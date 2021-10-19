@@ -472,7 +472,11 @@ class ModelExtensionOCFilter extends Model {
       $this->db->query("INSERT IGNORE INTO " . DB_PREFIX . "ocfilter_option_value             (option_id, value_id, image, sort_order)          SELECT option_id, option_value_id, image, sort_order FROM " . DB_PREFIX . "option_value");
       $this->db->query("INSERT IGNORE INTO " . DB_PREFIX . "ocfilter_option_value_description (option_id, value_id,	language_id, name)          SELECT option_id, option_value_id, language_id, name FROM " . DB_PREFIX . "option_value_description");
 
-      $this->db->query("DELETE FROM " . DB_PREFIX . "ocfilter_option_value_to_product WHERE option_id IN(SELECT option_id FROM " . DB_PREFIX . "product_option_value WHERE quantity < '1')");
+      $query = $this->db->query("SELECT option_id FROM `" . DB_PREFIX . "option`");
+
+      foreach ($query->rows as $result) {
+        $this->db->query("DELETE FROM " . DB_PREFIX . "ocfilter_option_value_to_product WHERE option_id = '" . (int)$result['option_id'] . "'");
+      }
 
       $this->db->query("INSERT IGNORE INTO " . DB_PREFIX . "ocfilter_option_value_to_product  (option_id, value_id, product_id)                 SELECT option_id, option_value_id, product_id FROM " . DB_PREFIX . "product_option_value WHERE quantity > '0'");
     }
@@ -488,7 +492,11 @@ class ModelExtensionOCFilter extends Model {
       $this->db->query("INSERT IGNORE INTO " . DB_PREFIX . "ocfilter_option_value             (option_id, value_id, sort_order)         SELECT (filter_group_id + '" . (int)$o . "'), (filter_id + '" . (int)$v . "'), sort_order FROM " . DB_PREFIX . "filter");
       $this->db->query("INSERT IGNORE INTO " . DB_PREFIX . "ocfilter_option_value_description (option_id, value_id,	language_id, name)  SELECT (filter_group_id + '" . (int)$o . "'), (filter_id + '" . (int)$v . "'), language_id, name FROM " . DB_PREFIX . "filter_description");
 
-      $this->db->query("DELETE FROM " . DB_PREFIX . "ocfilter_option_value_to_product WHERE option_id IN(SELECT (filter_group_id + '" . (int)$o . "') FROM " . DB_PREFIX . "filter_group)");
+      $query = $this->db->query("SELECT (filter_group_id + '" . (int)$o . "') AS option_id FROM `" . DB_PREFIX . "filter_group`");
+
+      foreach ($query->rows as $result) {
+        $this->db->query("DELETE FROM " . DB_PREFIX . "ocfilter_option_value_to_product WHERE option_id = '" . (int)$result['option_id'] . "'");
+      }
 
       $this->db->query("INSERT IGNORE INTO " . DB_PREFIX . "ocfilter_option_value_to_product  (option_id, value_id, product_id)         SELECT (SELECT oov.option_id FROM " . DB_PREFIX . "ocfilter_option_value oov WHERE oov.value_id = (pf.filter_id + '" . (int)$v . "')), (pf.filter_id + '" . (int)$v . "'), pf.product_id FROM " . DB_PREFIX . "product_filter pf");
     }
@@ -502,12 +510,16 @@ class ModelExtensionOCFilter extends Model {
       $this->db->query("INSERT IGNORE INTO " . DB_PREFIX . "ocfilter_option                   (option_id, status, type, sort_order)    SELECT (attribute_id + '" . (int)$o . "'), '" . (int)$status . "', '" . $this->db->escape($type) . "', sort_order FROM " . DB_PREFIX . "attribute");
       $this->db->query("INSERT IGNORE INTO " . DB_PREFIX . "ocfilter_option_description       (option_id, language_id, name)           SELECT (attribute_id + '" . (int)$o . "'), language_id, name FROM " . DB_PREFIX . "attribute_description");
 
-  		$this->db->query("INSERT IGNORE INTO " . DB_PREFIX . "ocfilter_option_value             (option_id, value_id)                    SELECT (attribute_id + '" . (int)$o . "'), (CRC32(CONCAT(attribute_id, text)) + '" . (int)$v . "') FROM " . DB_PREFIX . "product_attribute WHERE language_id = '" . (int)$this->config->get('config_language_id') . "' GROUP BY attribute_id, text");
-  		$this->db->query("INSERT IGNORE INTO " . DB_PREFIX . "ocfilter_option_value_description (option_id, value_id, language_id, name) SELECT (attribute_id + '" . (int)$o . "'), (CRC32(CONCAT(attribute_id, text)) + '" . (int)$v . "'), language_id, text FROM " . DB_PREFIX . "product_attribute WHERE language_id = '" . (int)$this->config->get('config_language_id') . "' GROUP BY attribute_id, text");
+  		$this->db->query("INSERT IGNORE INTO " . DB_PREFIX . "ocfilter_option_value             (option_id, value_id)                    SELECT (attribute_id + '" . (int)$o . "'), (CRC32(CONCAT(attribute_id, '.', text)) + '" . (int)$v . "') FROM " . DB_PREFIX . "product_attribute WHERE language_id = '" . (int)$this->config->get('config_language_id') . "' GROUP BY CRC32(CONCAT(attribute_id, '.', text))");
+  		$this->db->query("INSERT IGNORE INTO " . DB_PREFIX . "ocfilter_option_value_description (option_id, value_id, language_id, name) SELECT (attribute_id + '" . (int)$o . "'), (CRC32(CONCAT(attribute_id, '.', text)) + '" . (int)$v . "'), language_id, text FROM " . DB_PREFIX . "product_attribute WHERE language_id = '" . (int)$this->config->get('config_language_id') . "' GROUP BY CRC32(CONCAT(attribute_id, '.', text))");
 
-      $this->db->query("DELETE FROM " . DB_PREFIX . "ocfilter_option_value_to_product WHERE option_id IN(SELECT (attribute_id + '" . (int)$o . "') FROM " . DB_PREFIX . "attribute)");
+      $query = $this->db->query("SELECT (attribute_id + '" . (int)$o . "') AS option_id FROM `" . DB_PREFIX . "attribute`");
 
-      $this->db->query("INSERT IGNORE INTO " . DB_PREFIX . "ocfilter_option_value_to_product  (option_id, value_id, product_id)        SELECT (attribute_id + '" . (int)$o . "'), (CRC32(CONCAT(attribute_id, text)) + '" . (int)$v . "'), product_id FROM " . DB_PREFIX . "product_attribute WHERE language_id = '" . (int)$this->config->get('config_language_id') . "'");
+      foreach ($query->rows as $result) {
+        $this->db->query("DELETE FROM " . DB_PREFIX . "ocfilter_option_value_to_product WHERE option_id = '" . (int)$result['option_id'] . "'");
+      }
+
+      $this->db->query("INSERT IGNORE INTO " . DB_PREFIX . "ocfilter_option_value_to_product  (option_id, value_id, product_id)        SELECT (attribute_id + '" . (int)$o . "'), (CRC32(CONCAT(attribute_id, '.', text)) + '" . (int)$v . "'), product_id FROM " . DB_PREFIX . "product_attribute WHERE language_id = '" . (int)$this->config->get('config_language_id') . "'");
 
       $this->load->model('localisation/language');
 
@@ -520,13 +532,13 @@ class ModelExtensionOCFilter extends Model {
           SELECT
             (pa.attribute_id + '" . (int)$o . "'),
             (SELECT
-              (CRC32(CONCAT(pa2.attribute_id, pa2.text)) + '" . (int)$v . "') FROM " . DB_PREFIX . "product_attribute pa2
+              (CRC32(CONCAT(pa2.attribute_id, '.', pa2.text)) + '" . (int)$v . "') FROM " . DB_PREFIX . "product_attribute pa2
               WHERE pa2.language_id = '" . (int)$this->config->get('config_language_id') . "'
               AND pa2.product_id = pa.product_id
               AND pa2.attribute_id = pa.attribute_id LIMIT 1
             ),
             '" . (int)$language['language_id'] . "', pa.text
-          FROM " . DB_PREFIX . "product_attribute pa WHERE pa.language_id = '" . (int)$language['language_id'] . "' GROUP BY pa.attribute_id, pa.text");
+          FROM " . DB_PREFIX . "product_attribute pa WHERE pa.language_id = '" . (int)$language['language_id'] . "' GROUP BY CRC32(CONCAT(pa.attribute_id, '.', pa.text))");
         }
       }
 
@@ -595,8 +607,10 @@ class ModelExtensionOCFilter extends Model {
 
    	    $this->db->query("UPDATE " . DB_PREFIX . "ocfilter_option oo LEFT JOIN " . DB_PREFIX . "ocfilter_option_value oov ON (oo.option_id = oov.option_id) SET oo.status = '0' WHERE oov.value_id IS NULL");
 
-   	    $this->db->query("UPDATE " . DB_PREFIX . "ocfilter_option oo SET oo.status = '0' WHERE (oo.type = 'slide_dual' OR oo.type = 'slide') AND (SELECT COUNT(*) FROM " . DB_PREFIX . "ocfilter_option_value oov WHERE oov.option_id = oo.option_id) > '100'");
+   	    $this->db->query("UPDATE " . DB_PREFIX . "ocfilter_option oo SET oo.status = '0' WHERE oo.type NOT IN('slide_dual','slide') AND (SELECT COUNT(*) FROM " . DB_PREFIX . "ocfilter_option_value oov WHERE oov.option_id = oo.option_id) > '100'");
       }
+
+      $this->db->query("UPDATE " . DB_PREFIX . "ocfilter_option oo LEFT JOIN " . DB_PREFIX . "ocfilter_option_description ood ON (oo.option_id = ood.option_id) SET oo.status = '0' WHERE LCASE(ood.name = 'артикул') OR LCASE(ood.name = 'модель')");
 
       // Convert to slide
       $option_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "ocfilter_option WHERE status = '1' AND (type = 'slide' OR type = 'slide_dual')");
@@ -605,7 +619,8 @@ class ModelExtensionOCFilter extends Model {
         $value_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "ocfilter_option_value_description WHERE option_id = '" . (int)$option['option_id'] . "' AND language_id = '" . (int)$this->config->get('config_language_id') . "'");
 
         foreach ($value_query->rows as $value) {
-          $slide_value_min = (float)preg_replace('![^0-9\.\-]+!s', '', $value['name']);
+          $slide_value_min = str_replace(',', '.', $value['name']);
+          $slide_value_min = trim(preg_replace('/[^0-9\.\-]+/s', '', $slide_value_min));
 
           if ($slide_value_min) {
     		    $this->db->query("UPDATE IGNORE " . DB_PREFIX . "ocfilter_option_value_to_product SET value_id = '0', slide_value_min = '" . (float)$slide_value_min . "', slide_value_max = '" . (float)$slide_value_min . "' WHERE option_id = '" . (int)$value['option_id'] . "' AND value_id = '" . (string)$value['value_id'] . "'");
@@ -617,20 +632,57 @@ class ModelExtensionOCFilter extends Model {
     }
 
     // Set URL Aliases
-    $query = $this->db->query("SELECT oo.option_id, ood.name FROM " . DB_PREFIX . "ocfilter_option oo LEFT JOIN " . DB_PREFIX . "ocfilter_option_description ood ON(oo.option_id = ood.option_id) WHERE ood.language_id = '" . (int)$this->config->get('config_language_id') . "' AND oo.`keyword` = ''");
-
-    foreach ($query->rows as $row) {
-    	$this->db->query("UPDATE " . DB_PREFIX . "ocfilter_option SET `keyword` = '" . $this->db->escape($this->translit($row['name'])) . "' WHERE option_id = '" . (int)$row['option_id'] . "'");
-    }
-
-    $query = $this->db->query("SELECT oov.value_id, oovd.name FROM " . DB_PREFIX . "ocfilter_option_value oov LEFT JOIN " . DB_PREFIX . "ocfilter_option_value_description oovd ON(oov.value_id = oovd.value_id) WHERE oovd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND oov.`keyword` = ''");
-
-    foreach ($query->rows as $row) {
-    	$this->db->query("UPDATE " . DB_PREFIX . "ocfilter_option_value SET `keyword` = '" . $this->db->escape($this->translit($row['name'])) . "' WHERE value_id = '" . $this->db->escape($row['value_id']) . "'");
-    }
+    $this->setCopyFilterUrlAlias($data);
 
     $this->cache->delete('ocfilter');
     $this->cache->delete('product');
+  }
+
+  private function setCopyFilterUrlAlias($data) {
+    $query = $this->db->query("SELECT oo.option_id, ood.name FROM " . DB_PREFIX . "ocfilter_option oo LEFT JOIN " . DB_PREFIX . "ocfilter_option_description ood ON (oo.option_id = ood.option_id) WHERE oo.status = '1' AND ood.language_id = '" . (int)$this->config->get('config_language_id') . "' AND oo.`keyword` = ''");
+
+    while ($query->rows) {
+      $insert = array();
+
+      foreach (array_splice($query->rows, 0, 250) as $row) {
+        $insert[] = "'" . (int)$row['option_id'] . "','" . $this->db->escape($this->translit($row['name'])) . "'";
+      }
+
+      if ($insert) {
+        $this->db->query("INSERT INTO " . DB_PREFIX . "ocfilter_option (option_id, keyword) VALUES (" . implode("),(", $insert) . ") ON DUPLICATE KEY UPDATE keyword = VALUES(keyword)");
+      }
+    }
+
+    $query = $this->db->query("SELECT oov.value_id, oovd.name FROM " . DB_PREFIX . "ocfilter_option_value oov LEFT JOIN " . DB_PREFIX . "ocfilter_option_value_description oovd ON(oov.value_id = oovd.value_id) LEFT JOIN " . DB_PREFIX . "ocfilter_option oo ON (oov.option_id = oo.option_id) WHERE oo.status = '1' AND oovd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND oov.`keyword` = ''");
+
+    while ($query->rows) {
+      $insert = array();
+
+      foreach (array_splice($query->rows, 0, 250) as $row) {
+        $insert[] = "'" . $this->db->escape($row['value_id']) . "','" . $this->db->escape($this->translit($row['name'])) . "'";
+      }
+
+      if ($insert) {
+        $this->db->query("INSERT INTO " . DB_PREFIX . "ocfilter_option_value (value_id, keyword) VALUES (" . implode("),(", $insert) . ") ON DUPLICATE KEY UPDATE keyword = VALUES(keyword)");
+      }
+    }
+
+    // Rename Duplicates
+    $query = $this->db->query("SELECT oov.value_id FROM " . DB_PREFIX . "ocfilter_option_value oov LEFT JOIN " . DB_PREFIX . "ocfilter_option oo ON (oov.option_id = oo.option_id) LEFT JOIN " . DB_PREFIX . "seo_url ua ON (oov.keyword = ua.keyword) WHERE oo.status = '1' AND oov.keyword != '' AND ua.keyword IS NOT NULL");
+
+    foreach ($query->rows as $i => $result) {
+      $this->db->query("UPDATE " . DB_PREFIX . "ocfilter_option_value SET keyword = CONCAT(keyword, '-', '" . $this->db->escape((string)$result['value_id']) . "') WHERE value_id = '" . $this->db->escape($result['value_id']) . "'");
+    }
+
+    $query = $this->db->query("SELECT keyword, GROUP_CONCAT(value_id SEPARATOR ',') AS `values` FROM " . DB_PREFIX . "ocfilter_option_value GROUP BY keyword, option_id HAVING COUNT(value_id) > '1'");
+
+    foreach ($query->rows as $result) {
+      foreach (explode(',', $result['values']) as $i => $value_id) {
+        if ($i > 0) {
+          $this->db->query("UPDATE " . DB_PREFIX . "ocfilter_option_value SET keyword = CONCAT(keyword, '-', '" . $this->db->escape((string)$value_id) . "') WHERE value_id = '" . $this->db->escape($value_id) . "'");
+        }
+      }
+    }
   }
 
   public function translit($string) {

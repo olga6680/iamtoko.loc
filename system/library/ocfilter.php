@@ -844,8 +844,6 @@ final class OCFilter {
 
       if (isset($this->request->get['route'])) {
       	unset($this->request->get['route']);
-      } else {
-        $this->request->get['route'] = 'product/category';
       }
     }
   }
@@ -890,7 +888,7 @@ final class OCFilter {
         $query = false;
 
         if ($option_id == 'm') {
-          $query = $this->db->query("SELECT keyword FROM " . DB_PREFIX . "seo_url WHERE `query` = 'manufacturer_id=" . (int)$value_id . "'");
+          $query = $this->db->query("SELECT keyword FROM " . DB_PREFIX . "seo_url WHERE language_id = '" . (int)$this->config->get('config_language_id') . "' AND `query` = 'manufacturer_id=" . (int)$value_id . "'");
         } else if ($this->isID($value_id)) {
           $query = $this->db->query("SELECT keyword FROM " . DB_PREFIX . "ocfilter_option_value WHERE value_id = '" . $this->db->escape((string)$value_id) . "'");
         }

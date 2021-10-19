@@ -107,7 +107,7 @@ class ModelExtensionOCFilterPage extends Model {
     }
 
     if (!$query->num_rows) {
-      $query = $this->db->query("SELECT keyword, CONCAT('ocfilter_page_id=', ocfilter_page_id) AS `query` FROM " . DB_PREFIX . "ocfilter_page WHERE LCASE(keyword) = '" . $this->db->escape(utf8_strtolower($keyword)) . "'");
+      //$query = $this->db->query("SELECT keyword, CONCAT('ocfilter_page_id=', ocfilter_page_id) AS `query` FROM " . DB_PREFIX . "ocfilter_page WHERE LCASE(keyword) = '" . $this->db->escape(utf8_strtolower($keyword)) . "'");
     }
 
     if ($query->num_rows) {

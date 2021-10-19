@@ -46,7 +46,7 @@ class ControllerExtensionModuleOCFilter extends Controller {
     $data['symbol_left']      		= $this->currency->getSymbolLeft($this->session->data['currency']);
     $data['symbol_right']      		= $this->currency->getSymbolRight($this->session->data['currency']);
 
-    $data['show_options'] = !empty($this->ocfilter->getParams());
+    $data['show_options'] = $this->ocfilter->getParams();
 
     if ($this->config->get('module_ocfilter_show_selected') && $this->ocfilter->getOptionsGet()) {
       $data['selecteds'] = $this->ocfilter->getSelectedOptions();

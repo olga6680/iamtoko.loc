@@ -116,7 +116,7 @@ class ModelExtensionModuleOCFilter extends Model {
   }
 
   public function decodeManufacturer($keyword) {
-    $query = $this->db->query("SELECT REPLACE(`query`, 'manufacturer_id=', '') AS manufacturer_id FROM " . DB_PREFIX . "seo_url WHERE `query` LIKE 'manufacturer_id=%' AND LCASE(`keyword`) = '" . $this->db->escape(utf8_strtolower($keyword)) . "' LIMIT 1");
+    $query = $this->db->query("SELECT REPLACE(`query`, 'manufacturer_id=', '') AS manufacturer_id FROM " . DB_PREFIX . "seo_url WHERE language_id = '" . (int)$this->config->get('config_language_id') . "' AND `query` LIKE 'manufacturer_id=%' AND LCASE(`keyword`) = '" . $this->db->escape(utf8_strtolower($keyword)) . "' LIMIT 1");
 
     if (!$query->num_rows && $this->isID($keyword)) {
       $query = $this->db->query("SELECT manufacturer_id FROM " . DB_PREFIX . "manufacturer WHERE manufacturer_id = '" . (int)$keyword . "'");
@@ -141,7 +141,7 @@ class ModelExtensionModuleOCFilter extends Model {
         GROUP_CONCAT(REPLACE(`query`, 'category_id=', '') ORDER BY FIELD(keyword, " . implode(", ", $fields) . ") SEPARATOR '_') AS path,
         GROUP_CONCAT(`keyword` ORDER BY FIELD(keyword, " . implode(", ", $fields) . ") SEPARATOR '/') AS keywords
 
-        FROM " . DB_PREFIX . "seo_url WHERE `query` LIKE 'category_id=%' AND (keyword = " . implode(" OR keyword = ", $fields) . ")");
+        FROM " . DB_PREFIX . "seo_url WHERE language_id = '" . (int)$this->config->get('config_language_id') . "' AND `query` LIKE 'category_id=%' AND (keyword = " . implode(" OR keyword = ", $fields) . ")");
 
       if ($query->num_rows) {
         $result = new stdClass();
@@ -191,7 +191,7 @@ class ModelExtensionModuleOCFilter extends Model {
   }
 
   public function getCategorySeoPathByCategoryId($category_id) {
-    $query = $this->db->query("SELECT GROUP_CONCAT(DISTINCT su.`keyword` ORDER BY cp.`level` SEPARATOR '/') AS path FROM " . DB_PREFIX . "category_path cp LEFT JOIN " . DB_PREFIX . "seo_url su ON (CONCAT('category_id=', cp.path_id) = su.`query`) WHERE cp.category_id = '" . (int)$category_id . "'");
+    $query = $this->db->query("SELECT GROUP_CONCAT(DISTINCT su.`keyword` ORDER BY cp.`level` SEPARATOR '/') AS path FROM " . DB_PREFIX . "category_path cp LEFT JOIN " . DB_PREFIX . "seo_url su ON (CONCAT('category_id=', cp.path_id) = su.`query`) WHERE su.language_id = '" . (int)$this->config->get('config_language_id') . "' AND cp.category_id = '" . (int)$category_id . "'");
 
     if ($query->num_rows) {
     	return $query->row['path'];

@@ -98,6 +98,95 @@
 			fill: #ffffff
 			width: 22px
 
+/*---------Clos-sort---------*/
+.clos-sort
+	color: inherit
+	font-size: 20px
+	font-weight: 200
+	&:hover, &:focus
+		color: inherit
+a[aria-expanded="true"]:after,
+a[aria-expanded="true"]:before
+	font-family: FontAwesome
+	content: '\f106' !important
+	display: block
+.clos-sort:before,
+.clos-sort:after,
+	position: absolute
+	right: 0
+	top: -15%
+	font-family: FontAwesome
+	content: '\f107'
+.clos-sort-plus:before,
+.clos-sort-plus:after,
+	position: absolute
+	font-family: FontAwesome
+	color: #000
+	content: '\f107'
+	right: 0
+	top: -30%
+	padding: 0 5px
+.collapsed:before,
+.collapsed:after
+	display: block
+	position: absolute
+	font-family: FontAwesome
+	content: '\f107'
+	right: 0
+	padding: 0 5px
+	top: -.2em
+
+/*--------Кнопка купить в 1 клик---------*/
+.product-layout button:nth-child(1).btn-quick-order
+	color: $text-color
+	position: absolute
+	text-align: center
+	background-color: rgba(255, 255, 255, .3)
+	width: 78%
+	border-radius: 200px
+	border-color: $light-grey
+	left: 48%
+	top: 70%
+	transform: translate(-50%, 0)
+	transition: background-color .0.25s
+	&:hover, &:focus
+		background-color: rgba(255, 255, 255, .1)
+		text-decoration: underline
+	.oneclick
+		position: relative
+	span
+		text-transform: lowercase
+		font-weight: 600
+		font-size: 14px
+		margin-top: -5px
+	svg
+		position: absolute
+		width: 20px
+		height: 22px
+		left: 40px
+		top: -3px
+.latest-product, .sale-product
+	.product-layout button:nth-child(1).btn-quick-order svg
+		left: -20px
+
+/*---------Скролл вверх---------*/
+.scrollup
+	display: none
+	position: fixed
+	color: #fff
+	background-color: rgba(148, 146, 158, .2)
+	padding: 4px 10px
+	bottom: 0
+	right: 20px
+	font-size: 20px
+	text-align: center
+	transition: background-color .25s
+	transition: background-color .25s, opacity .5s, visibility .5s
+	cursor: pointer
+	z-index: 10000
+	&:hover
+		background-color: rgba(255, 102, 196, .8)
+
 @-webkit-keyframes wiggle
 	from
 		-webkit-transform: rotate(0deg)

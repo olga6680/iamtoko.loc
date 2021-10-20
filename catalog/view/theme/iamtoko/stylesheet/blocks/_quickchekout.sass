@@ -1,0 +1,78 @@
+#quickcheckoutconfirm
+	#login-box #checkout .quickcheckout-heading, #payment-address .quickcheckout-heading, #payment-method .quickcheckout-heading
+		font-size: 14px !important
+		text-transform: lowercase
+	input[type="checkbox"]
+		position: relative
+		margin: 4px 0 0
+		line-height: normal
+		padding: 0
+		text-align: left
+		font-size: inherit
+		color: inherit
+		appearance: checkbox
+		height: 13px
+	a .fa-question-circle::before
+		color: #000	!important
+	.quickcheckout-content
+		label
+			text-transform: lowercase
+	.btn-primary
+		border: none
+		text-decoration: none
+		background-color: #120e10
+		border-radius: 0
+		color: #fff
+		text-transform: lowercase
+		font:
+			weight: 400
+			size: 15.5px
+		transition: background-color .25s ease
+		outline: none
+		&:hover, &:active, &:focus
+			background-color: lighten(#120e10, 10%)
+	#payment-method
+		.quickcheckout-content
+			p, .table
+				display: none
+			strong
+				text-transform: lowercase
+				font-weight: 400
+		.quickcheckout-heading
+			display: none
+	#cart1
+		.quickcheckout-content .quickcheckout-cart
+			thead > tr > td
+				text-transform: lowercase
+			td.image img
+				width: 80px
+			td.name a
+				color: $text-color
+				font-size: 12px
+				&:hover, &:focus
+					text-decoration: underline
+			td.quantity
+				.btn-primary
+					padding: 0 10px
+					background-color: transparent
+					color: $text-color
+					border: 1px solid $superlight-grey
+				.btn-danger
+					background: $main-color
+					border: $main-color
+					border-radius: 0
+	#totals-wrap
+		.total-wrap:not(:nth-child(1))
+			display: none
+	#terms
+		label
+      a
+        color: $purple-color
+        margin: 0 5px
+        &:hover, &:focus
+          text-decoration: underline
+
+.category-head
+	.main-underline
+		text-transform: uppercase
+		font-size: 25px

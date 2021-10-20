@@ -22,9 +22,6 @@
       padding-right: 15px
       a
         font-size: 12px
-  .hamburger
-    &_active
-      left: 5px
   .product-layout button:nth-child(1).btn-quick-order
     span
       font-size: 10px
@@ -32,12 +29,14 @@
     width: 17%
 
 @media (max-width: 991px)
+  .header
+    &__logo
+      right: 7px
   .row
     margin-right: 15px
     margin-left: 15px
-  .hamburger
-    &_active
-      left: 5px
+  .promo
+    margin-top: 0
   .swiper-button-next, .swiper-button-prev
     background-size: 17px 43px
     width: 36px !important
@@ -81,6 +80,11 @@
       line-height: .5
     &__btn
       margin-top: 13px
+      margin-bottom: 20px
+  .latesthom
+    margin-top: 10px
+  #slideshow1
+    margin-top: -30px
   .advantages
     margin-top: 10px
   .newstoko
@@ -98,9 +102,7 @@
   .hamburger
     left: 34px
     &_active
-      left: 350px
-      z-index: 11
-      top: 70%
+      left: 237px !important
   .header
     &__right-menu
       padding: 8px 0 0 15px
@@ -182,8 +184,6 @@
   .hamburger
     left: 15px
     width: 25px
-    &_active
-      left: 235px
   .menu
     width: 280px
     &__item
@@ -205,6 +205,9 @@
     &__phone .dropdown-menu,
     &__accaunt .dropdown-menu
       top: 38px
+  .menu-right
+    padding-left: 0
+    padding-right: 0
   .slideshow
     &__descr
       &_3
@@ -251,6 +254,8 @@
       width: 100px
     &__btn
       font-size: 10px
+  .newstoko__form
+    width: 268px
   .footer
     margin-top: 50px
     &__socialwrapp

@@ -18,7 +18,7 @@ html
 .html_active
   margin-left: 400px
 a[aria-expanded="true"]::after, a[aria-expanded="true"]::before
-	display: none
+	display: none !important
 body
 	margin: 0
 	padding: 0
@@ -35,6 +35,10 @@ body
   color: $grey-color
   font-size: 10px
 
+/*---------Zoom---------*/
+.easyzoom--overlay
+	img
+		max-width: none !important
 //***
 
 /*---------Купить в 1 клик попап---------*/
@@ -1802,10 +1806,7 @@ h1
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
 
-/*---------Zoom---------*/
-.easyzoom--overlay
-	img
-		max-width: none !important
+
 /*----- Личный кабинет------ */
 #account-login, #account-register, #account-forgotten, #account-wishlist, #account-account, #account-edit, #account-password, #account-address, #account-order, #account-download, #account-recurring, #account-reward, #account-return, #account-transaction, #account-newsletter, #common-success
 	#content

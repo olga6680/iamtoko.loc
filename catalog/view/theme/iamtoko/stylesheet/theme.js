@@ -2,18 +2,21 @@ window.addEventListener('DOMContentLoaded', () => {
     const menu = document.querySelector('.menu'),
         html = document.querySelector('html'),
         menuItem = document.querySelectorAll('.menu__item'),
-        hamburger = document.querySelector('.hamburger');
+        hamburger = document.querySelector('.hamburger'),
+        fixed = document.querySelector('.fixed');
 
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('hamburger_active');
         menu.classList.toggle('menu_active');
         html.classList.toggle('html_active');
+        fixed.classList.toggle('fixed_active');
     });
 
     menuItem.forEach(item => {
         item.addEventListener('click', () => {
             hamburger.classList.toggle('hamburger_active');
             menu.classList.toggle('menu_active');
+            fixed.classList.toggle('fixed_active');
             body.classList.toggle('body_active');
         });
     });
@@ -27,13 +30,6 @@ $(window).scroll(function() {
         $menu.removeClass("default").addClass("fixed");
     } else if ($(this).scrollTop() <= 29 && $menu.hasClass("fixed")) {
         $menu.removeClass("fixed").addClass("default");
-    }
-});
-
-$(this).on('touchmove', function(event) {
-    if (event.originalEvent.scale !== 1) {
-        event.preventDefault();
-        event.stopPropagation();
     }
 });
 

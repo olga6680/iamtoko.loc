@@ -3,7 +3,7 @@
         <div id="bannerhom{{ module }}" class="bannerhom__ban{{ module }}">
             <div class="row">
                 {% for banner in banners %}
-                <div class="col-md-6 col-sm-6 col-xs-6 bannerhom__banner">
+                <div class="col-md-6 col-sm-6 col-xs-12 bannerhom__banner">
                     <a class="bannerhom__link" href="index.php?route=information/information&information_id=16">
                         <img src="{{ banner.image }}" alt="{{ banner.title }}" class="bannerhom__img img-responsive" /> {{ banner.description }}
                     </a>

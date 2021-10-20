@@ -40,6 +40,8 @@
   &__right
     position: relative
     height: 45px
+    a[aria-expanded="true"]::after, a[aria-expanded="true"]::before
+	    display: none !important
   &__right-menu
     display: flex
     justify-content: space-between

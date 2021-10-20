@@ -17,8 +17,6 @@ html
   overflow-x: hidden
 .html_active
   margin-left: 400px
-a[aria-expanded="true"]::after, a[aria-expanded="true"]::before
-	display: none !important
 body
 	margin: 0
 	padding: 0
@@ -43,130 +41,6 @@ a
 	img
 		max-width: none !important
 //***
-
-/*---------Купить в 1 клик попап---------*/
-#popup-quickorder
-	max-width: 570px !important
-	.popup-heading
-		text-align: center !important
-		border-bottom: none !important
-		top: 10px
-		margin-bottom: 10px
-		text-transform: uppercase
-	.product
-		.image
-			width: 120px !important
-		.pr-name
-			margin-right: 0
-			.quick-cell-content
-				font-size: 12px
-				text-transform: lowercase
-				font-weight: 600
-	.quantity_quickorder
-		.quick-cell-content
-			.popup-quantity
-				.form-control
-					box-shadow: none !important
-				.input-group-btn
-					.btn
-						border-radius: 0
-	.well-sm
-		border-radius: 0
-	.well
-		border: none
-		background-color: #fff
-		box-shadow: 3px 0 23px 9px rgba(0, 0, 0, 0.03)
-	.special_fast
-		.price-old
-			font-weight: 600
-			color: #777
-		.price-new
-			font-size: 16px
-			font-weight: 600
-			color: #464545
-	.options
-		.control-label
-			text-transform: lowercase
-			color: #464545
-		.radio-checbox-options
-			label
-				border-radius: 0 !important
-				border: 1px solid rgba(119, 119, 119, 0.3) !important
-				background-color: rgba(221, 221, 221, 0) !important
-				transition: background-color border .25s
-				color: #000 !important
-				box-shadow: none !important
-				&:hover, &:focus, &:active, &:after
-					background-color: rgba(221, 221, 221, .4)	!important
-					border: 1px solid rgba(119, 119, 119, 0.4) !important
-					color: #000 !important
-					box-shadow: none !important
-		.form-group:nth-child(1)
-			label
-				position: relative
-				width: 36px
-				height: 36px
-				span
-					position: absolute
-					top: 50%
-					left: 50%
-					transform: translate(-50%, -50%)
-		.form-group:nth-child(2)
-			label:not(.control-label)
-				background-color: rgba(242, 148, 200, .1)	!important
-				border: 1px solid rgba(242, 148, 200, .1) !important
-				transition: background-color border .25s
-				color: #464545
-				text-transform: lowercase
-				&:hover, &:focus
-					background-color: rgba(242, 148, 200, .2)	!important
-					border: 1px solid rgba(242, 148, 200, .2)	!important
-			input:checked + label
-					background-color: rgba(242, 148, 200, .3)	!important
-					border: 1px solid rgba(242, 148, 200, .3)	!important
-	.sections_block_rquaired, .sections_block
-
-		.form-control
-			font-size: 12px !important
-			box-shadow: none !important
-			width: 255px
-	#fastorder_data
-		.input-group-addon
-			border-radius: 0 !important
-			display: none
-	.popup-footer
-		background-color: #fff !important
-		border-top: none !important
-	#quickorder_btn
-		margin-bottom: 20px
-		.btn-quickorder-one
-			border-color: transparent
-			border-radius: 0
-			text-transform: lowercase
-			background-color: #120e10
-			color: #fff
-			padding: 8px 45px
-			font:
-				weight: 400
-				size: 16px
-			transition: background-color .25s ease
-			outline: none
-			&:hover, &:active, &:focus
-				background-color: lighten(#120e10, 10%)
-		input:checked + label
-			background-color: rgba(221, 221, 221, .4)	!important
-			border: 1px solid rgba(119, 119, 119, 0.4) !important
-	.error_input
-		border-color: #F20789 !important
-	input.error_input:placeholder
-		color: #F20789 !important
-#modal-addquickorder
-	.alert-success
-		color: #000
-		background-color: #fff
-		border-color: transparent
-
-
 
 /*---------Отзывы---------*/
 .review-mi
@@ -699,10 +573,6 @@ h1
 			a
 				width: initial
 
-
-
-
-
 /*---------Карточка товара---------*/
 #product-product
 	margin-top: 30px
@@ -747,6 +617,7 @@ h1
 		text-transform: lowercase
 		font-weight: 600
 		color: #464545
+
 	#product
 		h3
 			display: none
@@ -1689,15 +1560,6 @@ h1
 				-webkit-font-smoothing: antialiased
 				-moz-osx-font-smoothing: grayscale
 
-	.product-viewed
-		margin-top: 0
-		.slider-viewed .slick-list .slick-track > .slick-slide
-			margin: 0
-			.button-group
-				> :nth-child(1)
-					top: 66%
-				> :nth-child(2)
-					right: 8px
 
 	/*---------Вертикальный слайдер---------*/
 	#content
@@ -2109,5 +1971,6 @@ h1
 @import 'blocks/_ocfilter'
 @import 'blocks/_pagination'
 @import 'blocks/_quickchekout'
+@import 'blocks/_quickorder'
 
 @import 'blocks/_media'

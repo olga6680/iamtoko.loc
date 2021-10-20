@@ -40,18 +40,6 @@ $(this).on('touchmove', function(event) {
 $(function() {
 
 
-
-    //4 фото в категориях
-    $('.category-content-thumb > .product-layout > .product-thumb').each(function(e) {
-
-        e += 1;
-
-        $(this).parent().attr({
-            'class': 'product-layout product-grid col-lg-3 col-md-3 col-sm-6 col-xs-12 data-bal="element-bal"'
-
-        });
-    });
-
     $('#content .category-content-thumb .product-layout:nth-child(8)').after($('#product-category .banner-pro'));
 
 

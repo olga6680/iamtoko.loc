@@ -16,10 +16,13 @@
 			color: $text-color
 	p
 		display: none
+	.stock
+		display: block
+		font-size: 12px
 	.price
 		display: block
 		text-align: right
-		margin-top: -20px
+		margin-top: -48px
 		font-weight: 600
 		.price-old
 			font-weight: 400
@@ -61,6 +64,25 @@
 		position: absolute
 		width: 100%
 		height: 40px
-		bottom: 120px
+		bottom: 127px
 		left: 60%
 		transform: translate(-50%, 0)
+
+#information-information
+	.product-layout
+		margin-bottom: 40px
+		.price
+			margin-top: -64px
+		.fastorder
+			bottom: 110px
+		button:nth-child(1).btn-quick-order svg
+			left: 15px
+
+.product-viewed
+	margin-top: 0
+	.slider-viewed .slick-list .slick-track > .slick-slide
+		margin: 0	5px
+#product-product .product-related h3, #product-product .product-viewed h3
+	font-size: 14px
+#product-product .product-viewed .slider-viewed .slick-list .slick-track > .slick-slide .imag
+	margin-right: 10px
